@@ -80,7 +80,7 @@ void demoParseString()
 			Date registrationDate(date_day, date_month, date_year);
 			Car myCar(make, year, price, registrationDate);
 
-			cout << "Car: " << myCar << endl;
+			cout << "Student: " << myCar << endl;
 		}
 	}
 }
