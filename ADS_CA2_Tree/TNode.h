@@ -19,17 +19,7 @@ private:
 	TNode* pLeft, * pRight;
 
 public:
-	//TNode();
-	//~TNode();
-	//TNode(K, E);
-	//bool insert(K key, E data) {
-	//	return false;
-	//}
 	int count();
-	//void add(K key, E item);
-	//void setData(E data) { this->data = data; }
-	////TNode<K, E>* getParent();
-	//E getData() const { return this->data; }
 	void setLeft(TNode<K, E>* l);
 	void setRight(TNode<K, E>* r);
 	//E getItem();
