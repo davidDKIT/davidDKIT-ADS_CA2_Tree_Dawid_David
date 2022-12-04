@@ -16,5 +16,14 @@ namespace studentTest
 			Assert::IsNull(node.getLeft());
 			Assert::IsNull(node.getRight());
 		}
+		TEST_METHOD(TestAddLessThan)
+		{
+			TNode<int, int> node(1, 2);
+			Assert::AreEqual(2, node.getItem());
+			Assert::IsNull(node.getLeft());
+			node.add(1, 1);
+			Assert::IsNotNull(node.getLeft());
+			Assert::AreEqual(1, node.getLeft()->getItem());
+		}
 	};
 }

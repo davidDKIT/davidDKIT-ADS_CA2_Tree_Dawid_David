@@ -108,31 +108,79 @@ void TNode<K, E>::add(K key, E item)
 	}
 	else if (item < this->data && key < this->key)
 	{
+		// LEFT
 		if (pLeft == nullptr)
 		{
 			pLeft = new TNode<K, E>();
 			pLeft->data = item;
-			pLeft->parent = this;
 		}
 		else
 		{
-			left->add(item);
+			pLeft->add(item, key);
 		}
 	}
-	else
+	else if (item > this->data && key > this->key)
 	{
-		if (right == nullptr)
+		if (pLeft == nullptr)
 		{
-			right = new TNode<K, E>();
-			right->data = item;
-			right->parent = this;
+			pLeft = new TNode<K, E>();
+			pLeft->data = item;
 		}
 		else
 		{
-			right->add(item);
+			pLeft->add(item, key);
+		}
+	}
+	// RIGHT
+	else if (item < this->data && key < this->key)
+	{
+		if (pRight == nullptr)
+		{
+			pRight = new TNode<K, E>();
+			pRight->data = item;
+		}
+		else
+		{
+			pRight->add(item, key);
+		}
+	}
+	else if (item > this->data && key > this->key)
+	{
+		if (pRight == nullptr)
+		{
+			pRight = new TNode<K, E>();
+			pRight->data = item;
+		}
+		else
+		{
+			pRight->add(item, key);
+		}
+	}
+	
+	else
+	{
+		if (pRight == nullptr)
+		{
+			pRight = new TNode<K, E>();
+			pRight->data = item;
+		}
+		
+		else
+		{
+			pRight->add(item, key);
+		}
+		if (pLeft == nullptr)
+		{
+			pLeft = new TNode<K, E>();
+			pLeft->data = item;
+		}
+		else
+		{
+			pLeft->add(item, key);
 		}
 	}
 }
+
 template <typename K, typename E>
 void TNode<K, E>::setItem(K key, E item)
 {
