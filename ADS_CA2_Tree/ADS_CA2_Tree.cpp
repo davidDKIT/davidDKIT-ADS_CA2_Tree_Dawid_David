@@ -6,7 +6,6 @@
 #include "Utilities.h"
 #include "Car.h"
 #include "Date.h"
-#include "BinaryTree.h"
 
 using namespace std;
 
@@ -17,12 +16,6 @@ void demoCSVToObject();
 
 int main()
 {
-	BinaryTree<int, int> tree;
-	for (int i = 1; i <= 15; i++)
-	{
-		tree.add(i);
-	}
-
 	cout << endl << "demoSimpleHash()..........." << endl;
 	demoSimpleHash();
 

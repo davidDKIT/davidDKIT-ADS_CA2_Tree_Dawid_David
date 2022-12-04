@@ -21,7 +21,7 @@ private:
 public:
 	TNode();
 	~TNode();
-	TNode(K key, E data);
+	TNode(K, E);
 	bool insert(K key, E data) {
 		return false;
 	}
@@ -29,7 +29,7 @@ public:
 	int count();
 	void add(K key, E item);
 	void setData(E data) { this->data = data; }
-	TNode<K, E>* getParent();
+	//TNode<K, E>* getParent();
 	E getData() const { return this->data; }
 	TNode<K, E>* getLeft();
 	TNode<K, E>* getRight();
