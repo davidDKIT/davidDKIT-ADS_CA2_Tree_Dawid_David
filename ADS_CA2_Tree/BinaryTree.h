@@ -13,22 +13,22 @@ public:
 		return nullptr;
 	}
 };
-//template <typename K, typename E>
-//BinaryTree<K, E>::BinaryTree()
-//{
-//	root = nullptr;
-//}
-//
-//template <typename K, typename E>
-//void BinaryTree<K, E>::add(K key, E item)
-//{
-//	if (root == nullptr)
-//	{
-//		root = new TNode<K, E>();
-//		root->setItem(item);
-//	}
-//	else
-//	{
-//		root->add(item);
-//	}
-//}
+template <typename K, typename E>
+BinaryTree<K, E>::BinaryTree()
+{
+	root = nullptr;
+}
+
+template <typename K, typename E>
+void BinaryTree<K, E>::add(K key, E item)
+{
+	if (root == nullptr)
+	{
+		root = new TNode<K, E>();
+		root->setItem(item);
+	}
+	else
+	{
+		root->add(item);
+	}
+}

@@ -128,6 +128,7 @@ void TNode<K, E>::add(K keySamp, E item)
 		{
 			pLeft = new TNode<K, E>();
 			pLeft->data = item;
+			pLeft->key = keySamp;
 
 		}
 		else
@@ -143,6 +144,7 @@ void TNode<K, E>::add(K keySamp, E item)
 		{
 			pRight = new TNode<K, E>();
 			pRight->data = item;
+			pRight->key = keySamp;
 		}
 		else
 		{
@@ -154,6 +156,7 @@ void TNode<K, E>::add(K keySamp, E item)
 		{
 			pLeft = new TNode<K, E>();
 			pLeft->data = item;
+			pLeft->key = keySamp;
 
 		}
 		else
@@ -167,6 +170,7 @@ void TNode<K, E>::add(K keySamp, E item)
 		{
 			pRight = new TNode<K, E>();
 			pRight->data = item;
+			pRight->key = keySamp;
 		}
 		else
 		{
@@ -178,6 +182,7 @@ void TNode<K, E>::add(K keySamp, E item)
 		{
 			pRight = new TNode<K, E>();
 			pRight->data = item;
+			pRight->key = keySamp;
 		}
 		else
 		{
@@ -190,6 +195,7 @@ void TNode<K, E>::add(K keySamp, E item)
 		{
 			pLeft = new TNode<K, E>();
 			pLeft->data = item;
+			pLeft->key = keySamp;
 
 		}
 		else
