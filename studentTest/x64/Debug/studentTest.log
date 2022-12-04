@@ -1,0 +1,4 @@
+﻿  studentTest.cpp
+     Creating library C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\studentTest.lib and object C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\studentTest.exp
+studentTest.obj : error LNK2019: unresolved external symbol "public: class TNode<int,int> * __cdecl TNode<int,int>::getParent(void)" (?getParent@?$TNode@HH@@QEAAPEAV1@XZ) referenced in function "public: void __cdecl studentTest::studentTest::TestConstructor(void)" (?TestConstructor@studentTest@1@QEAAXXZ)
+C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\studentTest.dll : fatal error LNK1120: 1 unresolved externals
