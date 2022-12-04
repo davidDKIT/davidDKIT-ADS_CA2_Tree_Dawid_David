@@ -19,24 +19,40 @@ private:
 	TNode* pLeft, * pRight;
 
 public:
-	TNode();
-	~TNode();
-	TNode(K, E);
-	bool insert(K key, E data) {
-		return false;
-	}
-	
+	//TNode();
+	//~TNode();
+	//TNode(K, E);
+	//bool insert(K key, E data) {
+	//	return false;
+	//}
 	int count();
-	void add(K key, E item);
-	void setData(E data) { this->data = data; }
-	//TNode<K, E>* getParent();
-	E getData() const { return this->data; }
-	TNode<K, E>* getLeft();
-	TNode<K, E>* getRight();
+	//void add(K key, E item);
+	//void setData(E data) { this->data = data; }
+	////TNode<K, E>* getParent();
+	//E getData() const { return this->data; }
 	void setLeft(TNode<K, E>* l);
 	void setRight(TNode<K, E>* r);
+	//E getItem();
+	//void setItem(K, E item);
+
+	TNode();
+	TNode(K, E);
+
+	void setItem(K keySamp, E item);
+
+	TNode<K, E>* getLeft();
+	TNode<K, E>* getRight();
+
+	void add(K keySamp, E item);
+
+
+
 	E getItem();
-	void setItem(K, E item);
+
+	K getKey();
+
+
+	~TNode();
 };
 
 template <typename K, typename E>
@@ -91,49 +107,38 @@ int TNode<K, E>::count()
 	int c = 1;
 	if (pLeft != nullptr)
 	{
-		c += left->count();
+		c += pLeft->count();
 	}
 	if (pRight != nullptr)
 	{
-		c += right->count();
+		c += pRight->count();
 	}
 	return c;
 }
 template <typename K, typename E>
-void TNode<K, E>::add(K key, E item)
+void TNode<K, E>::add(K keySamp, E item)
 {
-	if (item == this->data && key == this->key)
+	if (item == this->data && keySamp == this->key)
 	{
 		return;
 	}
-	else if (item < this->data && key < this->key)
-	{
-		// LEFT
+	else if (item == this->data && keySamp < this->key) {
+
 		if (pLeft == nullptr)
 		{
 			pLeft = new TNode<K, E>();
 			pLeft->data = item;
+
 		}
 		else
 		{
-			pLeft->add(item, key);
+			pLeft->add(item, keySamp);
+
 		}
+
 	}
-	else if (item > this->data && key > this->key)
-	{
-		if (pLeft == nullptr)
-		{
-			pLeft = new TNode<K, E>();
-			pLeft->data = item;
-		}
-		else
-		{
-			pLeft->add(item, key);
-		}
-	}
-	// RIGHT
-	else if (item < this->data && key < this->key)
-	{
+	else if (item == this->data && keySamp > this->key) {
+
 		if (pRight == nullptr)
 		{
 			pRight = new TNode<K, E>();
@@ -141,11 +146,23 @@ void TNode<K, E>::add(K key, E item)
 		}
 		else
 		{
-			pRight->add(item, key);
+			pRight->add(item, keySamp);
 		}
 	}
-	else if (item > this->data && key > this->key)
-	{
+	else if (item < this->data && keySamp == this->key) {
+		if (pLeft == nullptr)
+		{
+			pLeft = new TNode<K, E>();
+			pLeft->data = item;
+
+		}
+		else
+		{
+			pLeft->add(item, keySamp);
+		}
+
+	}
+	else if (item > this->data && keySamp == this->key) {
 		if (pRight == nullptr)
 		{
 			pRight = new TNode<K, E>();
@@ -153,32 +170,34 @@ void TNode<K, E>::add(K key, E item)
 		}
 		else
 		{
-			pRight->add(item, key);
+			pRight->add(item, keySamp);
+		}
+	}
+	else if (item > this->data && keySamp > this->key) {
+		if (pRight == nullptr)
+		{
+			pRight = new TNode<K, E>();
+			pRight->data = item;
+		}
+		else
+		{
+			pRight->add(item, keySamp);
+		}
+
+	}
+	else if (item < this->data && keySamp < this->key) {
+		if (pLeft == nullptr)
+		{
+			pLeft = new TNode<K, E>();
+			pLeft->data = item;
+
+		}
+		else
+		{
+			pLeft->add(item, keySamp);
 		}
 	}
 	
-	else
-	{
-		if (pRight == nullptr)
-		{
-			pRight = new TNode<K, E>();
-			pRight->data = item;
-		}
-		
-		else
-		{
-			pRight->add(item, key);
-		}
-		if (pLeft == nullptr)
-		{
-			pLeft = new TNode<K, E>();
-			pLeft->data = item;
-		}
-		else
-		{
-			pLeft->add(item, key);
-		}
-	}
 }
 
 template <typename K, typename E>
