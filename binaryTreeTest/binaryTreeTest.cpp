@@ -47,7 +47,7 @@ namespace binaryTreeTest
 			Assert::AreEqual(3, right->getItem());
 		}
 		
-		/*TEST_METHOD(TestRemoveItemNotPresent)
+		TEST_METHOD(TestRemoveItemNotPresent)
 		{
 			BinaryTree<int, int> tree;
 			tree.add(4, 4);
@@ -69,7 +69,7 @@ namespace binaryTreeTest
 			Assert::AreEqual(3, left->getRight()->getItem());
 			Assert::AreEqual(5, right->getLeft()->getItem());
 			Assert::AreEqual(7, right->getRight()->getItem());
-		}*/
+		}
 
 		/*TEST_METHOD(TestCountOnFullTree)
 		{
