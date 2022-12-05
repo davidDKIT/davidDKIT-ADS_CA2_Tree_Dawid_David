@@ -19,7 +19,7 @@ namespace studentTest
 		}
 		TEST_METHOD(TestAddLessThan)
 		{
-			TNode<int, int> node(1, 2);
+			TNode<int, int> node(2, 2);
 			Assert::AreEqual(2, node.getItem());
 			Assert::IsNull(node.getLeft());
 			node.add(1, 1);
