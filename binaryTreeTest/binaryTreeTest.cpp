@@ -28,10 +28,6 @@ namespace binaryTreeTest
 			Assert::AreEqual(2, tree.root->getItem());
 			TNode<int, int>* left = tree.root->getLeft();
 			Assert::IsNotNull(left);
-			
-			
-			
-			
 			Assert::AreEqual(1, left->getItem());
 		}
 

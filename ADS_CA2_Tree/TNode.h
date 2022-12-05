@@ -125,7 +125,7 @@ void TNode<K, E>::add(K keySamp, E item)
         return;
     }
     // Checking if the data is the same but key is less than
-    else if ( keySamp < this->key) {
+    else if (keySamp < this->key) {
         if (pLeft == nullptr)
         {
             pLeft = new TNode<K, E>(item, keySamp);

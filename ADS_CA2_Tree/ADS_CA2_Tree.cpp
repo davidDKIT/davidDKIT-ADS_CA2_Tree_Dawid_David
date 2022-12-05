@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "Utilities.h"
-#include "Car.h"
+#include "Student.h"
 #include "Date.h"
 
 using namespace std;
@@ -79,7 +79,7 @@ void demoParseString()
 			int date_year = stoi(dateWords[2]);
 
 			Date registrationDate(date_day, date_month, date_year);
-			Car myCar(make, year, price, registrationDate);
+			Student myCar(make, year, price, registrationDate);
 
 			cout << "Student: " << myCar << endl;
 		}
