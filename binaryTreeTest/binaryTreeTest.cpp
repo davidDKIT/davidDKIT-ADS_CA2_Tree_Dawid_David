@@ -98,6 +98,29 @@ namespace binaryTreeTest
 
 			Assert::AreEqual(7, tree.count());
 		}
+		TEST_METHOD(TestRemoveLeafNode)
+		{
+			BinaryTree<int, int> tree;
+			tree.add(4, 4);
+			tree.add(2, 2);
+			tree.add(6, 6);
+			tree.add(1, 1);
+			tree.add(3, 3);
+			tree.add(5, 5);
+			tree.add(7, 7);
+			Assert::AreEqual(7, tree.count());
+			tree.remove(5, 5);
+			Assert::AreEqual(6, tree.count());
+			Assert::AreEqual(4, tree.root->getItem());
+			Assert::AreEqual(2, tree.root->getLeft()->getItem());
+			Assert::AreEqual(6, tree.root->getRight()->getItem());
+			TNode<int, int>* left = tree.root->getLeft();
+			TNode<int, int>* right = tree.root->getRight();
+			Assert::AreEqual(1, left->getLeft()->getItem());
+			Assert::AreEqual(3, left->getRight()->getItem());
+			Assert::IsNull(right->getLeft());
+			Assert::AreEqual(7, right->getRight()->getItem());
+		}
 
 	};
 }
