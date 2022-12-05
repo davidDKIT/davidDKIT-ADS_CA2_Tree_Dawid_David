@@ -71,7 +71,7 @@ namespace binaryTreeTest
 			Assert::AreEqual(7, right->getRight()->getItem());
 		}
 
-		/*TEST_METHOD(TestCountOnFullTree)
+		TEST_METHOD(TestCountOnFullTree)
 		{
 			BinaryTree<int, int> tree;
 			tree.add(4, 4);
@@ -83,6 +83,6 @@ namespace binaryTreeTest
 			tree.add(7, 7);
 
 			Assert::AreEqual(7, tree.count());
-		}*/
+		}
 	};
 }
