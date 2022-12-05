@@ -66,6 +66,24 @@ namespace binaryTreeTest
 			Assert::AreEqual(5, right->getLeft()->getItem());
 			Assert::AreEqual(7, right->getRight()->getItem());
 		}
+		/*
+		Test the count function for empty tree
+		*/
+		TEST_METHOD(TestCountOnEmpty)
+		{
+			BinaryTree<int, int> tree;
+			Assert::AreEqual(0, tree.count());
+		}
+
+		/*
+		Test the count function for full tree
+		to test this we will use the following tree
+		   4
+		  / \
+		 2   6
+		/ \ / \
+		1 3 5  7
+		*/
 
 		TEST_METHOD(TestCountOnFullTree)
 		{
@@ -80,5 +98,6 @@ namespace binaryTreeTest
 
 			Assert::AreEqual(7, tree.count());
 		}
+
 	};
 }

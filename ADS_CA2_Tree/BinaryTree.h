@@ -110,6 +110,7 @@ bool BinaryTree<K, E>::remove(K keyItem, E item)
     {
         smallestParent->setLeft(smallest->getRight());
     }
+    return true;
 }
 
 

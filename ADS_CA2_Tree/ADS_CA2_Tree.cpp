@@ -67,9 +67,9 @@ void demoParseString()
 
 	if (rowFromCSV.size() == 4)
 	{
-		string make = rowFromCSV[0];
-		int year = stoi(rowFromCSV[1]);
-		double price = stod(rowFromCSV[2]);
+		string userid = rowFromCSV[0];
+		int ranking = stoi(rowFromCSV[1]);
+		string country = rowFromCSV[2];
 		vector<string> dateWords = splitString(rowFromCSV[3], "/");
 
 		if (dateWords.size() == 3)
@@ -79,9 +79,9 @@ void demoParseString()
 			int date_year = stoi(dateWords[2]);
 
 			Date registrationDate(date_day, date_month, date_year);
-			Student myCar(make, year, price, registrationDate);
+			Student myStudent(userid, ranking, country, registrationDate);
 
-			cout << "Student: " << myCar << endl;
+			cout << "Student: " << myStudent << endl;
 		}
 	}
 }
