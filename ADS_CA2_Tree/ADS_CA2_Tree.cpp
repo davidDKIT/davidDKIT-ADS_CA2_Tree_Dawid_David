@@ -13,7 +13,7 @@ using namespace std;
 
 void demoSimpleHash();
 void demoDateHash();
-void demoParseString();
+//void demoParseString();
 void demoCSVToObject();
 
 int main()
@@ -24,8 +24,8 @@ int main()
 	cout << endl << "demoDateHash()..........." << endl;
 	demoDateHash();
 
-	cout << endl << "demoParseString()..........." << endl;
-	demoParseString();
+	/*cout << endl << "demoParseString()..........." << endl;
+	demoParseString();*/
 
 	cout << endl << "demoCSVToObject()..........." << endl;
 	demoCSVToObject();
@@ -60,33 +60,33 @@ void demoDateHash() {
 }
 
 //useful - fails when a row of data contains a field (e.g., address) which contains commas
-void demoParseString(std::string& passed)
-{
-	string str = passed;
-	string delimiter = ",";
-
-	vector<string> rowFromCSV = splitString(str, delimiter);
-
-	if (rowFromCSV.size() == 4)
-	{
-		string userid = rowFromCSV[0];
-		int ranking = stoi(rowFromCSV[1]);
-		string country = rowFromCSV[2];
-		vector<string> dateWords = splitString(rowFromCSV[3], "/");
-
-		if (dateWords.size() == 3)
-		{
-			int date_day = stoi(dateWords[0]);
-			int date_month = stoi(dateWords[1]);
-			int date_year = stoi(dateWords[2]);
-
-			Date registrationDate(date_day, date_month, date_year);
-			Student myStudent(userid, ranking, country, registrationDate);
-
-			cout << "Student: " << myStudent << endl;
-		}
-	}
-}
+//void demoParseString(std::string& passed)
+//{
+//	string str = passed;
+//	string delimiter = ",";
+//
+//	vector<string> rowFromCSV = splitString(str, delimiter);
+//
+//	if (rowFromCSV.size() == 4)
+//	{
+//		string userid = rowFromCSV[0];
+//		int ranking = stoi(rowFromCSV[1]);
+//		string country = rowFromCSV[2];
+//		vector<string> dateWords = splitString(rowFromCSV[3], "/");
+//
+//		if (dateWords.size() == 3)
+//		{
+//			int date_day = stoi(dateWords[0]);
+//			int date_month = stoi(dateWords[1]);
+//			int date_year = stoi(dateWords[2]);
+//
+//			Date registrationDate(date_day, date_month, date_year);
+//			Student myStudent(userid, ranking, country, registrationDate);
+//
+//			cout << "Student: " << myStudent << endl;
+//		}
+//	}
+//}
 
 //best - supports rows of data that contain commas and parenthesis - thanks for Derek!
 void demoCSVToObject()
@@ -94,14 +94,24 @@ void demoCSVToObject()
 	string delimiter = ",";
 	//note: data is a sub-folder under the folder with main CPP file
 	string fileName = "data/data_4.csv";
+	int count = 0;
+	cout << fileName <<endl;
 	vector<vector<string>> allData = readDelimitedRows(fileName);
 
 	for (vector<string> row : allData) {
-		for (std::string field : row) {
+		/*for (std::string field : row) {
 			cout << field << ",";
 			demoParseString(field);
+		}*/
+		if(count > 0)
+		{
+			string userid = row[0];
+			int ranking = stoi(row[1]);
+			string country = row[2];
 		}
-		cout << endl;
+
+		count++;
+		
 	}
 	
 }
