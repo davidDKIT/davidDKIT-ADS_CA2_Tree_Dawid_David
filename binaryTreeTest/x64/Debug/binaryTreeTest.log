@@ -1,4 +1,6 @@
-﻿  binaryTreeTest.cpp
-C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(114): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
-     Creating library C:\AWillToLive\x64\Debug\binaryTreeTest.lib and object C:\AWillToLive\x64\Debug\binaryTreeTest.exp
-  binaryTreeTest.vcxproj -> C:\AWillToLive\x64\Debug\binaryTreeTest.dll
+﻿  pch.cpp
+  binaryTreeTest.cpp
+C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(114): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
+  LINK : C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.dll not found or not built by the last incremental link; performing full link
+     Creating library C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.lib and object C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.exp
+  binaryTreeTest.vcxproj -> C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.dll
