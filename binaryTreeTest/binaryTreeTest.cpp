@@ -195,6 +195,27 @@ namespace binaryTreeTest
 			Assert::AreEqual(5, right->getLeft()->getItem());
 			Assert::AreEqual(7, right->getRight()->getItem());
 		}
+		TEST_METHOD(TestBoolSearchNode)
+		{
+			BinaryTree<int, int> tree;
+			tree.add(8, 8);
+			tree.add(4, 4);
+			tree.add(12, 12);
+			tree.add(2, 2);
+			tree.add(6, 6);
+			tree.add(1, 1);
+			tree.add(3, 3);
+			tree.add(5, 5);
+			tree.add(7, 7);
+			tree.add(10, 10);
+			tree.add(14, 14);
+			tree.add(9, 9);
+			tree.add(11, 11);
+			tree.add(13, 13);
+			tree.add(15, 15);
+			bool foundNode = tree.boolSearchNode(10);
+			Assert::AreEqual(true, foundNode);
+		}
 
 	};
 }

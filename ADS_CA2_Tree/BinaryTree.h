@@ -12,7 +12,7 @@ public:
     bool remove(K keyItem);
     int count();
 	
-    E* search(K key);
+    bool boolSearchNode(K key);
 };
 template <typename K, typename E>
 BinaryTree<K, E>::BinaryTree()
@@ -111,79 +111,34 @@ bool BinaryTree<K, E>::remove(K keyItem)
     /*return true;*/
 }
 template <typename K, typename E>
-E* BinaryTree<K, E>::search(K keyItem)
+bool BinaryTree<K, E>::boolSearchNode(K key)
 {
-    TNode<K, E>* toBeFound = root;
+    TNode<K, E>* toBeSearch = root;
     TNode<K, E>* parent = nullptr;
     bool found = false;
 
-    while (!found && toBeFound != nullptr)
+    while (!found && toBeSearch != nullptr)
     {
 
-        if (toBeFound->getKey() == keyItem)
+        if (toBeSearch->getKey() == key)
         {
-
             found = true;
         }
         else
         {
-            parent = toBeFound;
-            if (toBeFound->getKey() > keyItem)
+            parent = toBeSearch;
+            if (toBeSearch->getKey() > key)
             {
-                toBeFound = toBeFound->getLeft();
+                toBeSearch = toBeSearch->getLeft();
             }
             else
             {
-                toBeFound = toBeFound->getRight();
+                toBeSearch = toBeSearch->getRight();
             }
         }
     }
     if (!found)
         return false;
-
-    if (toBeFound->getLeft() == nullptr || toBeFound->getRight() == nullptr)
-    {
-        TNode<K, E>* newChild;
-        if (toBeFound->getLeft() == nullptr)
-        {
-            newChild = toBeFound->getRight();
-        }
-        else
-        {
-            newChild = toBeFound->getLeft();
-        }
-        if (parent == nullptr)
-        {
-            root = newChild;
-        }
-        else if (parent->getLeft() == toBeFound)
-        {
-            parent->setLeft(newChild);
-        }
-        else
-        {
-            parent->setRight(newChild);
-        }
-        return true;
-    }
-
-    TNode<K, E>* smallestParent = toBeFound;
-    TNode<K, E>* smallest = toBeFound->getRight();
-    while (smallest->getLeft() != nullptr)
-    {
-        smallestParent = smallest;
-        smallest = smallest->getLeft();
-    }
-    toBeFound->setItem(smallest->getItem());
-    if (smallestParent == toBeFound)
-    {
-        smallestParent->setRight(smallest->getRight());
-    }
-    else
-    {
-        smallestParent->setLeft(smallest->getRight());
-    }
-    return true;
 }
 
 
