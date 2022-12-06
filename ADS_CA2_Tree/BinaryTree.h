@@ -11,6 +11,13 @@ public:
 	void add(K, E item);
     bool remove(K keyItem);
     int count();
+
+    void printInOrder();
+    void printInOrder(TNode<K, E>* node);
+    void printPreOrder();
+    void printPreOrder(TNode<K, E>* node);
+    void printPostOrder();
+    void printPostOrder(TNode<K, E>* node);
 	
     bool boolSearchNode(K key);
 };
@@ -149,4 +156,59 @@ int BinaryTree<K, E>::count()
     if (root == nullptr)
         return 0;
     return root->count();
+}
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printInOrder()
+{
+    this->printInOrder(root);
+    cout << endl;
+}
+template<typename K, typename E>
+void BinaryTree<K, E>::printInOrder(TNode<K, E>* node)
+{
+
+    if (node != nullptr)
+    {
+        printInOrder(node->getLeft());
+        cout << node->getItem() << " ";
+        printInOrder(node->getRight());
+    }
+}
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printPreOrder()
+{
+    this->printPreOrder(root);
+    cout << endl;
+}
+template<typename K, typename E>
+void BinaryTree<K, E>::printPreOrder(TNode<K, E>* node)
+{
+
+    if (node != nullptr)
+    {
+        cout << node->getItem() << " ";
+        printPreOrder(node->getLeft());
+        printPreOrder(node->getRight());
+    }
+}
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printPostOrder()
+{
+    this->printPostOrder(root);
+    cout << endl;
+}
+template<typename K, typename E>
+void BinaryTree<K, E>::printPostOrder(TNode<K, E>* node)
+{
+
+    if (node != nullptr)
+    {
+
+        printPostOrder(node->getLeft());
+        printPostOrder(node->getRight());
+        cout << node->getItem() << " ";
+    }
 }
