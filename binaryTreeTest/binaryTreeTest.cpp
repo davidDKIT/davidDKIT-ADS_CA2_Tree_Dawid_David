@@ -149,16 +149,16 @@ namespace binaryTreeTest
 			Assert::IsNull(tree.root->getRight()->getRight()->getLeft());
 		}
 
-		/*TEST_METHOD(TestRemoveNodeWithOneChild)
+		TEST_METHOD(TestRemoveNodeWithOneChild)
 		{
 			BinaryTree<int, int> tree;
-			tree.add(2, 4);
-			tree.add(1, 2);
-			tree.add(3, 6);
-			tree.add(4, 1);
-			tree.add(6, 5);
-			tree.add(8, 7);
+			tree.add(4, 4);
+			tree.add(2, 2);
+			tree.add(6, 6);
+			tree.add(1, 1);
+			tree.add(5, 5);
 			tree.add(7, 7);
+			tree.add(8, 8);
 			Assert::AreEqual(7, tree.count());
 			tree.remove(7);
 			Assert::AreEqual(6, tree.count());
@@ -170,7 +170,7 @@ namespace binaryTreeTest
 			Assert::AreEqual(1, left->getLeft()->getItem());
 			Assert::AreEqual(5, right->getLeft()->getItem());
 			Assert::AreEqual(8, right->getRight()->getItem());
-		}*/
+		}
 
 	};
 }

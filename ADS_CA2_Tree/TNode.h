@@ -120,7 +120,7 @@ template <typename K,typename E>
 void TNode<K, E>::add(K keySamp, E item)
 {
     //Checks for Duplicates
-    if (/*item == this->data && */keySamp == this->key)
+    if (keySamp == this->key)
     {
         return;
     }
@@ -128,13 +128,13 @@ void TNode<K, E>::add(K keySamp, E item)
     else if (keySamp < this->key) {
         if (pLeft == nullptr)
         {
-            pLeft = new TNode<K, E>(item, keySamp);
+            pLeft = new TNode<K, E>(keySamp, item);
            // pLeft->data = item;
             // pLeft->key = keySamp;
         }
         else
         {
-            pLeft->add(item, keySamp);
+            pLeft->add(keySamp, item);
         }
     }
 
@@ -143,15 +143,15 @@ void TNode<K, E>::add(K keySamp, E item)
     else if (keySamp > this->key) {
         if (pRight == nullptr)
         {
-            pRight = new TNode<K, E>();
+            pRight = new TNode<K, E>(keySamp, item);
 
-            pRight->data = item;
+            /*pRight->key = keySamp;
+            pRight->data = item;*/
 
-            pRight->key = keySamp;
         }
         else
         {
-            pRight->add(item, keySamp);
+            pRight->add(keySamp, item);
         }
 
     }
@@ -218,7 +218,7 @@ void TNode<K, E>::setItem( E item)
 }
 
 template <typename K, typename E>
-void TNode<K, E>::setKey(K key)
+void TNode<K, E>::setKey(K keySamp)
 {
-	this->key = key;
+	this->key = keySamp;
 }
