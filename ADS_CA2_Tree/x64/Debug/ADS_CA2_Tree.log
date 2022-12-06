@@ -1,2 +1,4 @@
-﻿  ADS_CA2_Tree.cpp
-  ADS_CA2_Tree.vcxproj -> C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\ADS_CA2_Tree.exe
+﻿ADS_CA2_Tree.obj : error LNK2019: unresolved external symbol "void __cdecl demoParseString(void)" (?demoParseString@@YAXXZ) referenced in function main
+    Hint on symbols that are defined and could potentially match:
+      "void __cdecl demoParseString(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)" (?demoParseString@@YAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\ADS_CA2_Tree.exe : fatal error LNK1120: 1 unresolved externals

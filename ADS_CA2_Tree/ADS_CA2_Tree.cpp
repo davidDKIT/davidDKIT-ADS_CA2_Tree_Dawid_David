@@ -6,6 +6,8 @@
 #include "Utilities.h"
 #include "Student.h"
 #include "Date.h"
+#include "TNode.h"
+#include "BinaryTree.h"
 
 using namespace std;
 
@@ -58,9 +60,9 @@ void demoDateHash() {
 }
 
 //useful - fails when a row of data contains a field (e.g., address) which contains commas
-void demoParseString()
+void demoParseString(std::string& passed)
 {
-	string str = "ford, 2012, 1299.55, 25/12/2022";
+	string str = passed;
 	string delimiter = ",";
 
 	vector<string> rowFromCSV = splitString(str, delimiter);
@@ -89,14 +91,17 @@ void demoParseString()
 //best - supports rows of data that contain commas and parenthesis - thanks for Derek!
 void demoCSVToObject()
 {
+	string delimiter = ",";
 	//note: data is a sub-folder under the folder with main CPP file
 	string fileName = "data/data_4.csv";
 	vector<vector<string>> allData = readDelimitedRows(fileName);
 
 	for (vector<string> row : allData) {
-		for (string field : row) {
+		for (std::string field : row) {
 			cout << field << ",";
+			demoParseString(field);
 		}
 		cout << endl;
 	}
+	
 }
