@@ -9,7 +9,7 @@ public:
 	TNode<K, E> *root;
     BinaryTree();
 	void add(K, E item);
-    bool remove(K keyItem, E item);
+    bool remove(K keyItem);
     int count();
 	
 	E* search(K key) {
@@ -38,7 +38,7 @@ void BinaryTree<K, E>::add(K keySamp, E item)
 }
 
 template <typename K, typename E>
-bool BinaryTree<K, E>::remove(K keyItem, E item)
+bool BinaryTree<K, E>::remove(K keyItem)
 {
     TNode<K, E>* toBeRemoved = root;
     TNode<K, E>* parent = nullptr;
@@ -47,7 +47,7 @@ bool BinaryTree<K, E>::remove(K keyItem, E item)
     while (!found && toBeRemoved != nullptr)
     {
 
-        if (toBeRemoved->getItem() == item && toBeRemoved->getKey() == keyItem)
+        if (toBeRemoved->getKey() == keyItem)
         {
 
             found = true;
@@ -55,7 +55,7 @@ bool BinaryTree<K, E>::remove(K keyItem, E item)
         else
         {
             parent = toBeRemoved;
-            if (toBeRemoved->getItem() > item && toBeRemoved->getKey() > keyItem)
+            if (toBeRemoved->getKey() > keyItem)
             {
                 toBeRemoved = toBeRemoved->getLeft();
             }
