@@ -18,7 +18,7 @@ public:
     void printPreOrder(TNode<K, E>* node);
     void printPostOrder();
     void printPostOrder(TNode<K, E>* node);
-	
+    int checkDepth(TNode<K, E>* root, K key);
     bool boolSearchNode(K key);
 };
 template <typename K, typename E>
@@ -146,6 +146,31 @@ bool BinaryTree<K, E>::boolSearchNode(K key)
     }
     if (!found)
         return false;
+}
+template <typename K, typename E>
+int BinaryTree<K, E>::checkDepth(TNode<K, E>* root, K keySamp)
+{
+    if (root == NULL)
+        return -1;
+
+    // Initialize distance as -1
+    int dist = -1;
+
+    // Check if x is current node=
+    if ((root->getKey() == keySamp)
+
+        // Otherwise, check if x is
+        // present in the left subtree
+        || (dist = checkDepth(root->getLeft(), keySamp)) >= 0
+
+        // Otherwise, check if x is
+        // present in the right subtree
+        || (dist = checkDepth(root->getRight(), keySamp)) >= 0)
+
+        // Return depth of the node
+        return dist + 1;
+
+    return dist;
 }
 
 
