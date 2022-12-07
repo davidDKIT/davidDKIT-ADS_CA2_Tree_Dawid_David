@@ -1,3 +1,2 @@
 ﻿  ADS_CA2_Tree.cpp
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(21,27): error C4596: 'checkDepth': illegal qualified name in member declaration
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(23): message : see reference to class template instantiation 'BinaryTree<K,E>' being compiled
+  ADS_CA2_Tree.vcxproj -> C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\ADS_CA2_Tree.exe

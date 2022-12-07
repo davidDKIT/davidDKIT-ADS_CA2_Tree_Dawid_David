@@ -2,6 +2,8 @@
 //if E == Student (email, dob, address, id,...)
 //then K = Key(email, dob, address)
 #include "TNode.h"
+#include<iostream>
+using namespace std;
 template <typename K, typename E>
 class BinaryTree
 {
@@ -18,8 +20,9 @@ public:
     void printPreOrder(TNode<K, E>* node);
     void printPostOrder();
     void printPostOrder(TNode<K, E>* node);
-    int checkDepth(TNode<K, E>* root, K key);
+    int scanDepth(TNode<K, E>* root, K key);
     bool boolSearchNode(K key);
+    int findHeight(TNode<K, E>* root, int keySamp);
 };
 template <typename K, typename E>
 BinaryTree<K, E>::BinaryTree()
@@ -148,32 +151,39 @@ bool BinaryTree<K, E>::boolSearchNode(K key)
         return false;
 }
 template <typename K, typename E>
-int BinaryTree<K, E>::checkDepth(TNode<K, E>* root, K keySamp)
+int BinaryTree<K, E>::scanDepth(TNode<K, E>* root, K keySamp)
 {
     if (root == NULL)
         return -1;
 
-    // Initialize distance as -1
     int dist = -1;
 
-    // Check if x is current node=
     if ((root->getKey() == keySamp)
 
-        // Otherwise, check if x is
-        // present in the left subtree
-        || (dist = checkDepth(root->getLeft(), keySamp)) >= 0
+        || (dist = scanDepth(root->getLeft(), keySamp)) >= 0
 
-        // Otherwise, check if x is
-        // present in the right subtree
-        || (dist = checkDepth(root->getRight(), keySamp)) >= 0)
+        || (dist = scanDepth(root->getRight(), keySamp)) >= 0)
 
-        // Return depth of the node
         return dist + 1;
 
     return dist;
 }
 
-
+// Function to find the height of
+// a given node in a Binary Tree
+template <typename K, typename E>
+int BinaryTree<K, E>::findHeight(TNode<K, E>* root, int keySamp)
+{
+    int h = 0;
+    if (root != NULL)
+    {
+        int lHeight = findHeight(root->getLeft(), keySamp);
+        int rHeight = findHeight(root->getRight(), keySamp);
+        int maxHeight = max(lHeight, rHeight);
+        h = maxHeight + 1;
+    }
+    return h;
+}
 
 template <typename K, typename E>
 int BinaryTree<K, E>::count()
