@@ -22,7 +22,7 @@ public:
     void printPostOrder(TNode<K, E>* node);
     int scanDepth(TNode<K, E>* root, K key);
     bool boolSearchNode(K key);
-    int findHeight(TNode<K, E>* root, int keySamp);
+    int findTreeHeight(TNode<K, E>* root, int keySamp);
 };
 template <typename K, typename E>
 BinaryTree<K, E>::BinaryTree()
@@ -172,13 +172,13 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root, K keySamp)
 // Function to find the height of
 // a given node in a Binary Tree
 template <typename K, typename E>
-int BinaryTree<K, E>::findHeight(TNode<K, E>* root, int keySamp)
+int BinaryTree<K, E>::findTreeHeight(TNode<K, E>* root, int keySamp)
 {
     int h = 0;
     if (root != NULL)
     {
-        int lHeight = findHeight(root->getLeft(), keySamp);
-        int rHeight = findHeight(root->getRight(), keySamp);
+        int lHeight = findTreeHeight(root->getLeft(), keySamp);
+        int rHeight = findTreeHeight(root->getRight(), keySamp);
         int maxHeight = max(lHeight, rHeight);
         h = maxHeight + 1;
     }

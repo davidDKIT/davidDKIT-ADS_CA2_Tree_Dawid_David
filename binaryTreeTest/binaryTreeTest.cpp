@@ -255,7 +255,7 @@ namespace binaryTreeTest
 			tree.add(11, 11);
 			tree.add(13, 13);
 			tree.add(15, 15);
-			bool foundDepth = tree.findHeight(tree.root, 11);
+			bool foundDepth = tree.findTreeHeight(tree.root, 11);
 			Assert::AreEqual(true, foundDepth);
 		}
 	};
