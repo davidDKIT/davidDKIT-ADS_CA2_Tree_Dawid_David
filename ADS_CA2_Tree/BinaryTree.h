@@ -21,7 +21,7 @@ public:
     void printPreOrder(TNode<K, E>* node);
     void printPostOrder();
     void printPostOrder(TNode<K, E>* node);
-    int scanDepth(TNode<K, E>* root, K key);
+    int scanDepth(TNode<K, E>* root);
     bool boolSearchNode(K key);
     int findMaxTreeHeight(TNode<K, E>* root);
     int findMinTreeHeight(TNode<K, E>* root);
@@ -153,22 +153,18 @@ bool BinaryTree<K, E>::boolSearchNode(K key)
         return false;
 }
 template <typename K, typename E>
-int BinaryTree<K, E>::scanDepth(TNode<K, E>* root, K keySamp)
+int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
 {
-    if (root == NULL)
-        return -1;
+    // Check if the tree is empty
+    if (root == nullptr)
+        return 0;
 
-    int dist = -1;
+    // Recursively search the left and right subtrees
+    int leftDepth = scanDepth(root->getLeft());
+    int rightDepth = scanDepth(root->getRight());
 
-    if ((root->getKey() == keySamp)
-
-        || (dist = scanDepth(root->getLeft(), keySamp)) >= 0
-
-        || (dist = scanDepth(root->getRight(), keySamp)) >= 0)
-
-        return dist + 1;
-
-    return dist;
+    // Return the maximum depth of the subtrees, plus 1 for the root node
+    return std::max(leftDepth, rightDepth) + 1;
 }
 
 // Function to find the height of
