@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <regex>
+#include "BinaryTree.h"
 using namespace std;
 
 /// <summary>

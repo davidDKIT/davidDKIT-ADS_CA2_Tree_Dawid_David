@@ -1,5 +1,5 @@
 ﻿  binaryTreeTest.cpp
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(152): warning C4715: 'BinaryTree<int,int>::boolSearchNode': not all control paths return a value
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(122): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(154): warning C4715: 'BinaryTree<int,int>::boolSearchNode': not all control paths return a value
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(124): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
      Creating library C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.lib and object C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.exp
   binaryTreeTest.vcxproj -> C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.dll

@@ -3,6 +3,7 @@
 //then K = Key(email, dob, address)
 #include "TNode.h"
 #include<iostream>
+#include <math.h>
 using namespace std;
 template <typename K, typename E>
 class BinaryTree
@@ -22,7 +23,8 @@ public:
     void printPostOrder(TNode<K, E>* node);
     int scanDepth(TNode<K, E>* root, K key);
     bool boolSearchNode(K key);
-    int findTreeHeight(TNode<K, E>* root, int keySamp);
+    int findMaxTreeHeight(TNode<K, E>* root);
+    int findMinTreeHeight(TNode<K, E>* root);
 };
 template <typename K, typename E>
 BinaryTree<K, E>::BinaryTree()
@@ -171,19 +173,49 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root, K keySamp)
 
 // Function to find the height of
 // a given node in a Binary Tree
+//template <typename K, typename E>
+//int BinaryTree<K, E>::findTreeHeight(TNode<K, E>* root, int keySamp)
+//{
+//    int h = 0;
+//    int s = 0;
+//    if (root != nullptr)
+//    {
+//        int lHeight = findTreeHeight(root->getLeft(), keySamp);
+//        int rHeight = findTreeHeight(root->getRight(), keySamp);
+//        int maxHeight = max(lHeight, rHeight);
+//        h = maxHeight + 1;
+//    }
+//    else if(root != nullptr)
+//    {
+//        int lHeight = findTreeHeight(root->getLeft(), keySamp);
+//        int rHeight = findTreeHeight(root->getRight(), keySamp);
+//        int maxHeight = min(lHeight, rHeight);
+//        s = maxHeight + 1;
+//    }
+//    return h, s;
+//}
+// 
 template <typename K, typename E>
-int BinaryTree<K, E>::findTreeHeight(TNode<K, E>* root, int keySamp)
+int BinaryTree<K, E>::findMaxTreeHeight(TNode<K, E>* root)
 {
-    int h = 0;
-    if (root != NULL)
-    {
-        int lHeight = findTreeHeight(root->getLeft(), keySamp);
-        int rHeight = findTreeHeight(root->getRight(), keySamp);
-        int maxHeight = max(lHeight, rHeight);
-        h = maxHeight + 1;
-    }
-    return h;
+    if (root == NULL)
+        return 0;
+    int leftHeight = findMaxTreeHeight(root->getLeft());
+    int rightHeight = findMaxTreeHeight(root->getRight());
+
+    return max(leftHeight, rightHeight) + 1;
 }
+template <typename K, typename E>
+int BinaryTree<K, E>::findMinTreeHeight(TNode<K, E>* root)
+{
+    if (root == NULL)
+        return 0;
+    int leftHeight = findMinTreeHeight(root->getLeft());
+    int rightHeight = findMinTreeHeight(root->getRight());
+
+    return min(leftHeight, rightHeight) + 1;
+}
+
 
 template <typename K, typename E>
 int BinaryTree<K, E>::count()
