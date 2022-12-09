@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include "../ADS_CA2_Tree/BinaryTree.h"
 #include "../ADS_CA2_Tree/TNode.h"
+#include <cassert>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -195,7 +196,7 @@ namespace binaryTreeTest
 			Assert::AreEqual(5, right->getLeft()->getItem());
 			Assert::AreEqual(7, right->getRight()->getItem());
 		}
-		TEST_METHOD(TestBoolSearchNode)
+		TEST_METHOD(TestSearchNode)
 		{
 			BinaryTree<int, int> tree;
 			tree.add(8, 8);
@@ -213,8 +214,8 @@ namespace binaryTreeTest
 			tree.add(11, 11);
 			tree.add(13, 13);
 			tree.add(15, 15);
-			bool foundNode = tree.boolSearchNode(10);
-			Assert::AreEqual(true, foundNode);
+			int foundNode = tree.SearchNode(5);
+			Assert::AreEqual(5, foundNode);
 		}
 		TEST_METHOD(TestScanDepth)
 		{
@@ -275,17 +276,41 @@ namespace binaryTreeTest
 			int foundHeightMin = tree.findMinTreeHeight(tree.root);
 			Assert::AreEqual(3, foundHeightMin);
 		}
-		/*TEST_METHOD(TestbalanceTree)
+		/*TEST_METHOD(TestgetSubtree)
 		{
 			BinaryTree<int, int> tree;
+			tree.add(8, 8);
+			tree.add(12, 12);
+			tree.add(2, 2);
+			tree.add(6, 6);
+			tree.add(1, 1);
+			tree.add(3, 3);
+			tree.add(5, 5);
+			tree.add(7, 7);
+			tree.add(10, 10);
+			tree.add(14, 14);
+			tree.add(9, 9);
+			tree.add(11, 11);
 			tree.add(13, 13);
-			tree.add(25, 25);
-			tree.add(21, 21);
-			tree.add(35, 35);
-			tree.add(48, 48);
-			tree.add(79, 79);
-			bool foundDepth = tree.findTreeHeight(tree.root, 13);
-			Assert::AreEqual(true, foundDepth);
-		}*/
+			tree.add(15, 15);
+			int foundHeightMin = tree.getSubtree(tree.root, 11);
+			Assert::AreEqual(3, foundHeightMin);*/
+//		}
+		//TEST_METHOD(TestfindBalance)
+		//{
+		//	// Test with empty tree
+		//	BinaryTree<int, int> tree;
+		//	TNode<int, int>* root = tree.root;
+		//	tree.add(13, 13);
+		//	Assert::AreEqual(true, tree.findBalance(root));
+		//	tree.add(10, 10);
+		//	tree.add(15, 15);
+		//	Assert::AreEqual(tree.findBalance(root) == false);
+
+		//	// Test with multiple nodes and balanced tree
+		//	tree.add(3, 3);
+		//	tree.add(7, 7);
+		//	Assert::AreEqualassert(tree.findBalance(root) == true);
+		//};
 	};
 }
