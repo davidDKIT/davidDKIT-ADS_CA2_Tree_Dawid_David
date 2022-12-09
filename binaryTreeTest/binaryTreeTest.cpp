@@ -207,7 +207,7 @@ namespace binaryTreeTest
 			tree.add(1, 1);
 			tree.add(3, 3);
 			tree.add(5, 5);
-			tree.add(7, 7);
+			tree.add(7, 7);A
 			tree.add(10, 10);
 			tree.add(14, 14);
 			tree.add(9, 9);

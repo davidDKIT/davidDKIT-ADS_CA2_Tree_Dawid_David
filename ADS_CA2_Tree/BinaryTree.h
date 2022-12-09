@@ -177,6 +177,25 @@ int BinaryTree<K, E>::SearchNode(K keySamp)
         return node->getItem();
     }
 }
+//void createBalancedTree(BinaryTree<int>& tree, int min, int max, int* arr)
+//{
+//    if (min < max)
+//    {
+//        int mid = (min + max) / 2;
+//        tree.add(arr[mid]);
+//        createBalancedTree(tree, min, mid, arr);
+//        createBalancedTree(tree, mid + 1, max, arr);
+//    }
+//}
+//
+//void balance(BinaryTree<int>& tree)
+//{
+//    int* arr = tree.toArray();
+//    int max = tree.count();
+//    tree.clear();
+//    createBalancedTree(tree, 0, max, arr);
+//    delete[] arr;
+//}
 template <typename K, typename E>
 int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
 {
