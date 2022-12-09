@@ -25,6 +25,7 @@ public:
     int SearchNode(K keySamp);
     int findMaxTreeHeight(TNode<K, E>* root);
     int findMinTreeHeight(TNode<K, E>* root);
+    //int createBalancedTree(BinaryTree<int, int>& tree, int min, int max, E data);
     //int findBalance(TNode<K, E>* root);
 };
 template <typename K, typename E>
@@ -177,18 +178,19 @@ int BinaryTree<K, E>::SearchNode(K keySamp)
         return node->getItem();
     }
 }
-//void createBalancedTree(BinaryTree<int>& tree, int min, int max, int* arr)
+//template <typename K, typename E>
+//int BinaryTree<K, E>::createBalancedTree(BinaryTree<int, int>& tree, int min, int max, E data)
 //{
 //    if (min < max)
 //    {
 //        int mid = (min + max) / 2;
 //        tree.add(arr[mid]);
-//        createBalancedTree(tree, min, mid, arr);
-//        createBalancedTree(tree, mid + 1, max, arr);
+//        createBalancedTree(tree, min, mid, data);
+//        createBalancedTree(tree, mid + 1, max, data);
 //    }
 //}
 //
-//void balance(BinaryTree<int>& tree)
+//int BinaryTree<K, E>::balance(BinaryTree<int, int>& tree)
 //{
 //    int* arr = tree.toArray();
 //    int max = tree.count();
