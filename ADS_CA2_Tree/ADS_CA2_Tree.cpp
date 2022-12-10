@@ -191,29 +191,29 @@ void demoBenchmarkVectorFindLast() {
 }
 
 //best - supports rows of data that contain commas and parenthesis - thanks for Derek!
-void demoCSVToObject()
-{
-	string delimiter = ",";
-	//note: data is a sub-folder under the folder with main CPP file
-	string fileName = "data/data_4.csv";
-	int count = 0;
-	cout << fileName <<endl;
-	vector<vector<string>> allData = readDelimitedRows(fileName);
-
-	for (vector<string> row : allData) {
-		/*for (std::string field : row) {
-			cout << field << ",";
-			demoParseString(field);
-		}*/
-		if(count > 0)
-		{
-			string userid = row[0];
-			int ranking = stoi(row[1]);
-			string country = row[2];
-		}
-
-		count++;
-		
-	}
-	
-};
+//void demoCSVToObject()
+//{
+//	string delimiter = ",";
+//	//note: data is a sub-folder under the folder with main CPP file
+//	string fileName = "data/data_4.csv";
+//	int count = 0;
+//	cout << fileName <<endl;
+//	vector<vector<string>> allData = readDelimitedRows(fileName);
+//
+//	for (vector<string> row : allData) {
+//		/*for (std::string field : row) {
+//			cout << field << ",";
+//			demoParseString(field);
+//		}*/
+//		if(count > 0)
+//		{
+//			string userid = row[0];
+//			int ranking = stoi(row[1]);
+//			string country = row[2];
+//		}
+//
+//		count++;
+//		
+//	}
+//	
+//};

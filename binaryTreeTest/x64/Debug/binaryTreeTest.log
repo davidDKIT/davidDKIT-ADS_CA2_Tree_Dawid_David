@@ -1,1 +1,20 @@
-﻿  binaryTreeTest.vcxproj -> C:\AWillToLive\x64\Debug\binaryTreeTest.dll
+﻿  pch.cpp
+  binaryTreeTest.cpp
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(278,1): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(272): message : while compiling class template member function 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)'
+          with
+          [
+              K=int,
+              E=int
+          ]
+C:\AWillToLive\binaryTreeTest\binaryTreeTest.cpp(341): message : see reference to function template instantiation 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)' being compiled
+          with
+          [
+              K=int,
+              E=int
+          ]
+C:\AWillToLive\binaryTreeTest\binaryTreeTest.cpp(35): message : see reference to class template instantiation 'BinaryTree<int,int>' being compiled
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(160): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(198): warning C4715: 'BinaryTree<int,int>::SearchNode': not all control paths return a value
+     Creating library C:\AWillToLive\x64\Debug\binaryTreeTest.lib and object C:\AWillToLive\x64\Debug\binaryTreeTest.exp
+  binaryTreeTest.vcxproj -> C:\AWillToLive\x64\Debug\binaryTreeTest.dll

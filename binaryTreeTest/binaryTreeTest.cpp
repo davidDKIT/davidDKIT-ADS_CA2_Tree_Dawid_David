@@ -289,7 +289,7 @@ namespace binaryTreeTest
 
 		/*TEST_METHOD(TestGetSubTree)
 		{
-			
+
 			BinaryTree<int, int> tree;
 			TNode<int, int>* root = tree.root;
 			tree.add(8, 8);
@@ -307,7 +307,7 @@ namespace binaryTreeTest
 			tree.add(11, 11);
 			tree.add(13, 13);
 			tree.add(15, 15);
-			
+
 			BinaryTree<int, int> subTree = tree.getSubtree(tree.root, 12);
 
 			Assert::AreEqual(12, subTree.root->getKey());
