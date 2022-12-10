@@ -22,13 +22,9 @@ public:
 	int count();
 	void setLeft(TNode<K, E>* l);
 	void setRight(TNode<K, E>* r);
-	//E getItem();
-	//void setItem(K, E item);
 
 	TNode();
 	TNode(K, E);
-
-	//void setItem(K keySamp, E item);
 
 	TNode<K, E>* getLeft();
 	TNode<K, E>* getRight();
@@ -129,8 +125,6 @@ void TNode<K, E>::add(K keySamp, E item)
         if (pLeft == nullptr)
         {
             pLeft = new TNode<K, E>(keySamp, item);
-           // pLeft->data = item;
-            // pLeft->key = keySamp;
         }
         else
         {
@@ -144,10 +138,6 @@ void TNode<K, E>::add(K keySamp, E item)
         if (pRight == nullptr)
         {
             pRight = new TNode<K, E>(keySamp, item);
-
-            /*pRight->key = keySamp;
-            pRight->data = item;*/
-
         }
         else
         {
@@ -155,60 +145,6 @@ void TNode<K, E>::add(K keySamp, E item)
         }
 
     }
-
-    //Checking if data is Lower than and key is the same
-
-    //else if (item < this->data && keySamp == this->key) {
-    //    if (pLeft == nullptr)
-    //    {
-    //        pLeft = new TNode<K, E>();
-    //        pLeft->data = item;
-    //        pLeft->key = keySamp;
-    //    }
-    //    else
-    //    {
-    //        pLeft->add(item, keySamp);
-    //    }
-    //}
-    //// Checking if data is higher than and key is the same
-    //else if (item > this->data && keySamp == this->key) {
-    //    if (pRight == nullptr)
-    //    {
-    //        pRight = new TNode<K, E>();
-    //        pRight->data = item;
-    //        pRight->key = keySamp;
-    //    }
-    //    else
-    //    {
-    //        pRight->add(item, keySamp);
-    //    }
-    //}
-    ////Checks if data and key is larger than
-    //else if (item > this->data && keySamp > this->key) {
-    //    if (pRight == nullptr)
-    //    {
-    //        pRight = new TNode<K, E>();
-    //        pRight->data = item;
-    //        pRight->key = keySamp;
-    //    }
-    //    else
-    //    {
-    //        pRight->add(item, keySamp);
-    //    }
-    //}
-    ////Checks if data and key is less than
-    //else if (item < this->data && keySamp < this->key) {
-    //    if (pLeft == nullptr)
-    //    {
-    //        pLeft = new TNode<K, E>();
-    //        pLeft->data = item;
-    //        pLeft->key = keySamp;
-    //    }
-    //    else
-    //    {
-    //        pLeft->add(item, keySamp);
-    //    }
-    //}
 }
 
 template <typename K, typename E>

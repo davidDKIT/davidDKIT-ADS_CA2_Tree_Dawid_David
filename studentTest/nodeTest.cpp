@@ -51,18 +51,5 @@ namespace studentTest
 			Assert::IsNotNull(pRight->getRight());
 			Assert::AreEqual(8, pRight->getRight()->getItem());
 		}
-
-		/*TEST_METHOD(TestCount)
-		{
-			TNode<int, int> node(3, 3);
-			node.add(2, 2);
-			node.add(6, 6);
-			TNode<int, int>* pLeft = node.getLeft();
-			node.add(1, 1);
-			node.add(3, 3);
-			node.add(5, 5);
-			node.add(7, 7);
-			Assert::AreEqual(7, node.count());
-		}*/
 	};
 }
