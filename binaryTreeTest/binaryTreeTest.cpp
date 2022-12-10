@@ -2,6 +2,8 @@
 #include "CppUnitTest.h"
 #include "../ADS_CA2_Tree/BinaryTree.h"
 #include "../ADS_CA2_Tree/TNode.h"
+#include "../ADS_CA2_Tree/Student.h"
+#include "../ADS_CA2_Tree/sKey.h"
 #include <cassert>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -12,13 +14,21 @@ namespace binaryTreeTest
 	{
 	public:
 		
-		TEST_METHOD(TestAddToEmptyTree)
-		{
-			BinaryTree<int, int> tree;
-			tree.add(1, 1);
-			Assert::IsNotNull(tree.root);
-			Assert::AreEqual(1, tree.root->getItem());
-		}
+		//TEST_METHOD(TestAddToEmptyTree)
+		//{
+		//	TNode<sKey, Student> tree;
+		//	sKey keySamp1("WBC88XPE6LP", "Colby", "1-704-685-7028");
+
+		//	Student student1("WBC88XPE6LP", "Colby", "1-704-685-7028");
+		//	tree.add(key1, std1);
+
+		//	Assert::IsNotNull(tree.root);
+		//	Student s = tree.root->getData();
+
+		//	string id = "WBC88XPE6LP";
+		//	//checking if the data from the first key is in the root
+		//	Assert::AreEqual(id, s.getuser_id());
+		//}
 
 		TEST_METHOD(TestAddToRootLeft)
 		{
@@ -296,21 +306,27 @@ namespace binaryTreeTest
 			int foundHeightMin = tree.getSubtree(tree.root, 11);
 			Assert::AreEqual(3, foundHeightMin);*/
 //		}
-		//TEST_METHOD(TestfindBalance)
-		//{
-		//	// Test with empty tree
-		//	BinaryTree<int, int> tree;
-		//	TNode<int, int>* root = tree.root;
-		//	tree.add(13, 13);
-		//	Assert::AreEqual(true, tree.findBalance(root));
-		//	tree.add(10, 10);
-		//	tree.add(15, 15);
-		//	Assert::AreEqual(tree.findBalance(root) == false);
-
-		//	// Test with multiple nodes and balanced tree
-		//	tree.add(3, 3);
-		//	tree.add(7, 7);
-		//	Assert::AreEqualassert(tree.findBalance(root) == true);
-		//};
+// 
+		TEST_METHOD(TestfindBalance)
+		{
+			// Test with empty tree
+			BinaryTree<int, int> tree;
+			TNode<int, int>* root = tree.root;
+			tree.add(13, 13);
+			tree.add(8, 8);
+			tree.add(12, 12);
+			tree.add(2, 2);
+			tree.add(6, 6);
+			tree.add(1, 1);
+			tree.add(3, 3);
+			tree.add(5, 5);
+			tree.add(7, 7);
+			tree.add(10, 10);
+			tree.add(14, 14);
+			tree.add(9, 9);
+			tree.add(11, 11);
+			tree.add(13, 13);
+			Assert::AreEqual(1, tree.isBalanced(root));
+		};
 	};
 }

@@ -25,6 +25,8 @@ public:
     int SearchNode(K keySamp);
     int findMaxTreeHeight(TNode<K, E>* root);
     int findMinTreeHeight(TNode<K, E>* root);
+    int height(TNode<K, E>* root);
+    int isBalanced(TNode<K, E>* root);
     //int createBalancedTree(BinaryTree<int, int>& tree, int min, int max, E data);
     //int findBalance(TNode<K, E>* root);
 };
@@ -225,6 +227,24 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
 //
 //    return balance;
 //}
+// balance
+template <typename K, typename E>
+int BinaryTree<K, E>::height(TNode<K, E>* root)
+{
+    if (root == nullptr)
+        return 0;
+    return 1 + max(height(root->getLeft()), height(root->getRight()));
+}
+template <typename K, typename E>
+int BinaryTree<K, E>::isBalanced(TNode<K, E>* root)
+{
+    if (root == nullptr)
+        return true;
+    int lh = height(root->getLeft());
+    int rh = height(root->getRight());
+
+    return (abs(lh - rh) <= 1 & isBalanced(root->getLeft()) & isBalanced(root->getRight()));
+}
  
 template <typename K, typename E>
 int BinaryTree<K, E>::findMaxTreeHeight(TNode<K, E>* root)

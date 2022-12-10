@@ -1,5 +1,18 @@
 ﻿  binaryTreeTest.cpp
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(126): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(180): warning C4715: 'BinaryTree<int,int>::SearchNode': not all control paths return a value
-     Creating library C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.lib and object C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.exp
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(246,1): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(240): message : while compiling class template member function 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)'
+          with
+          [
+              K=int,
+              E=int
+          ]
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\binaryTreeTest\binaryTreeTest.cpp(329): message : see reference to function template instantiation 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)' being compiled
+          with
+          [
+              K=int,
+              E=int
+          ]
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\binaryTreeTest\binaryTreeTest.cpp(35): message : see reference to class template instantiation 'BinaryTree<int,int>' being compiled
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(182): warning C4715: 'BinaryTree<int,int>::SearchNode': not all control paths return a value
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(128): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
   binaryTreeTest.vcxproj -> C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.dll
