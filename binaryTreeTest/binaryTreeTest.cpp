@@ -295,10 +295,10 @@ namespace binaryTreeTest
 			Assert::AreEqual(3, foundHeightMin);
 		}
 
-		/*TEST_METHOD(TestGetSubTree)
+		TEST_METHOD(TestGetSubTree)
 		{
 
-			BinaryTree<int, int> tree;
+			/*BinaryTree<int, int> tree;
 			TNode<int, int>* root = tree.root;
 			tree.add(8, 8);
 			tree.add(4, 4);
@@ -324,29 +324,36 @@ namespace binaryTreeTest
 			Assert::AreEqual(9, subTree.root->getLeft()->getLeft()->getKey());
 			Assert::AreEqual(11, subTree.root->getLeft()->getRight()->getKey());
 			Assert::AreEqual(13, subTree.root->getRight()->getRight()->getKey());
-			Assert::AreEqual(15, subTree.root->getRight()->getLeft()->getKey());
-		}*/
+			Assert::AreEqual(15, subTree.root->getRight()->getLeft()->getKey());*/
+
+			BinaryTree<int, int> tree;
+			TNode<int, int>* root = new TNode<int, int>(5, 5);
+			root->setLeft(new TNode<int, int>(4, 4));
+			root->setRight(new TNode<int, int>(10, 10));
+			root->getLeft()->setLeft(new TNode<int, int>(3, 3));
+			root->getLeft()->setRight(new TNode<int, int>(7, 7));
+			root->getLeft()->getLeft()->setLeft(new TNode<int, int>(2, 2));
+			root->getLeft()->getRight()->setRight(new TNode<int, int>(15, 15));
+			TNode<int, int>* new_root = tree.getSubtree(root, 7);
+
+		}
  
 		TEST_METHOD(TestfindBalance)
 		{
 			// Test with empty tree
 			BinaryTree<int, int> tree;
 			TNode<int, int>* root = tree.root;
-			tree.add(13, 13);
 			tree.add(8, 8);
-			tree.add(12, 12);
-			tree.add(2, 2);
-			tree.add(6, 6);
-			tree.add(1, 1);
 			tree.add(3, 3);
-			tree.add(5, 5);
-			tree.add(7, 7);
 			tree.add(10, 10);
-			tree.add(14, 14);
-			tree.add(9, 9);
-			tree.add(11, 11);
+			tree.add(3, 3);
+			tree.add(2, 2);
+			tree.add(15, 15);
 			tree.add(13, 13);
+			tree.add(12, 12);
+			
 			Assert::AreEqual(1, tree.isBalanced(root));
+
 		};
 	};
 }

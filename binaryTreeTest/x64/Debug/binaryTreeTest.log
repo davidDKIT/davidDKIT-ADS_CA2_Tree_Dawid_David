@@ -6,7 +6,7 @@ C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\Bina
               K=int,
               E=int
           ]
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\binaryTreeTest\binaryTreeTest.cpp(349): message : see reference to function template instantiation 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)' being compiled
+C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\binaryTreeTest\binaryTreeTest.cpp(355): message : see reference to function template instantiation 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)' being compiled
           with
           [
               K=int,

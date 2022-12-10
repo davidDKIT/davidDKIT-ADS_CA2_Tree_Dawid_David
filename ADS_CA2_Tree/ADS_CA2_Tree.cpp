@@ -50,7 +50,21 @@ int main()
 	cout << "after: " << endl;
 	printBT(new_root);
 
-	return 0;
+
+	/*BinaryTree<int, int> tree;
+	root->setLeft(new TNode<int, int>(4, 4));
+	root->setRight(new TNode<int, int>(10, 10));
+	root->getLeft()->setLeft(new TNode<int, int>(3, 3));
+	root->getLeft()->setRight(new TNode<int, int>(7, 7));
+	root->getLeft()->getLeft()->setLeft(new TNode<int, int>(2, 2));
+	root->getLeft()->getRight()->setRight(new TNode<int, int>(15, 15));
+
+	cout << "before: " << endl;
+	printBT(root);
+	TNode<int, int>* new_root = tree.isBalanced(root, 7);
+	cout << "after: " << endl;
+	printBT(new_root);
+	return 0;*/
 }
 
 void demoSimpleHash() {

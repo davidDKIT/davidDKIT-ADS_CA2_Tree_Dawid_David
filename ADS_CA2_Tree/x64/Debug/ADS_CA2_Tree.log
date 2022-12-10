@@ -5,7 +5,7 @@ C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\Util
               _Ty=int
           ]
 C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\Benchmark.h(21,20): warning C4244: 'return': conversion from '__int64' to 'double', possible loss of data
-C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\ADS_CA2_Tree.cpp(195): message : see reference to function template instantiation 'double measureTime<LinearStringSearchFunctor>(FuncType)' being compiled
+C:\Users\david\source\repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\ADS_CA2_Tree.cpp(209): message : see reference to function template instantiation 'double measureTime<LinearStringSearchFunctor>(FuncType)' being compiled
           with
           [
               FuncType=LinearStringSearchFunctor
