@@ -35,15 +35,14 @@ public:
 
 	void setKey(K key);
 
-
-
 	E getItem();
 
 	K getKey();
 
-
 	~TNode();
 };
+
+#pragma region Destructor
 
 template <typename K, typename E>
 TNode<K, E>::~TNode()
@@ -51,6 +50,31 @@ TNode<K, E>::~TNode()
 	delete pLeft;
 	delete pRight;
 }
+
+#pragma endregion
+
+#pragma region Constructors
+
+template <typename K, typename E>
+TNode<typename K, typename E>::TNode()
+{
+	pLeft = nullptr;
+	pRight = nullptr;
+}
+
+template <typename K, typename E>
+TNode<typename K, typename E>::TNode(K key, E data)
+{
+	pLeft = nullptr;
+	pRight = nullptr;
+	this->key = key;
+	this->data = data;
+}
+
+#pragma endregion
+
+#pragma region Getters
+
 template <typename K, typename E>
 E TNode<K, E>::getItem()
 {
@@ -60,7 +84,7 @@ E TNode<K, E>::getItem()
 template <typename K, typename E>
 K TNode<K, E>::getKey()
 {
-    return this->key;
+	return this->key;
 }
 
 template <typename K, typename E>
@@ -73,31 +97,11 @@ TNode<K, E>* TNode<K, E>::getRight()
 {
 	return this->pRight;
 }
-template <typename K, typename E>
-void TNode<K, E>::setLeft(TNode<K, E>* l)
-{
-	this->pLeft = l;
-}
-template <typename K, typename E>
-void TNode<K, E>::setRight(TNode<K, E>* r)
-{
-	this->pRight = r;
-}
 
-template <typename K, typename E>
-TNode<typename K, typename E>::TNode()
-{
-	pLeft = nullptr;
-	pRight = nullptr;
-}
-template <typename K, typename E>
-TNode<typename K, typename E>::TNode(K key, E data)
-{
-	pLeft = nullptr;
-	pRight = nullptr;
-	this->key = key;
-	this->data = data;
-}
+#pragma endregion
+
+#pragma region Count
+
 template <typename K, typename E>
 int TNode<K, E>::count()
 {
@@ -112,43 +116,52 @@ int TNode<K, E>::count()
 	}
 	return c;
 }
-template <typename K,typename E>
-void TNode<K, E>::add(K keySamp, E item)
-{
-    //Checks for Duplicates
-    if (keySamp == this->key)
-    {
-        return;
-    }
-    // Checking if the data is the same but key is less than
-    else if (keySamp < this->key) {
-        if (pLeft == nullptr)
-        {
-            pLeft = new TNode<K, E>(keySamp, item);
-        }
-        else
-        {
-            pLeft->add(keySamp, item);
-        }
-    }
 
-    // Checking if the data is the same and key is greater than
+#pragma endregion
 
-    else if (keySamp > this->key) {
-        if (pRight == nullptr)
-        {
-            pRight = new TNode<K, E>(keySamp, item);
-        }
-        else
-        {
-            pRight->add(keySamp, item);
-        }
-
-    }
-}
+#pragma region Add
 
 template <typename K, typename E>
-void TNode<K, E>::setItem( E item)
+void TNode<K, E>::add(K keySamp, E item)
+{
+	//Checks for Duplicates
+	if (keySamp == this->key)
+	{
+		return;
+	}
+	// Checking if the data is the same but key is less than
+	else if (keySamp < this->key) {
+		if (pLeft == nullptr)
+		{
+			pLeft = new TNode<K, E>(keySamp, item);
+		}
+		else
+		{
+			pLeft->add(keySamp, item);
+		}
+	}
+
+	// Checking if the data is the same and key is greater than
+
+	else if (keySamp > this->key) {
+		if (pRight == nullptr)
+		{
+			pRight = new TNode<K, E>(keySamp, item);
+		}
+		else
+		{
+			pRight->add(keySamp, item);
+		}
+
+	}
+}
+
+#pragma endregion
+
+#pragma region Setters
+
+template <typename K, typename E>
+void TNode<K, E>::setItem(E item)
 {
 	this->data = item;
 }
@@ -158,3 +171,17 @@ void TNode<K, E>::setKey(K keySamp)
 {
 	this->key = keySamp;
 }
+
+template <typename K, typename E>
+void TNode<K, E>::setLeft(TNode<K, E>* l)
+{
+	this->pLeft = l;
+}
+
+template <typename K, typename E>
+void TNode<K, E>::setRight(TNode<K, E>* r)
+{
+	this->pRight = r;
+}
+
+#pragma endregion

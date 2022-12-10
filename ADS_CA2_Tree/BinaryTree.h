@@ -8,6 +8,7 @@ using namespace std;
 template <typename K, typename E>
 class BinaryTree
 {
+#pragma region BinaryTree Public
 public:
 	TNode<K, E> *root;
     BinaryTree();
@@ -28,13 +29,16 @@ public:
     int findMinTreeHeight(TNode<K, E>* root);
     int height(TNode<K, E>* root);
     int isBalanced(TNode<K, E>* root);
+#pragma endregion
 };
+
 template <typename K, typename E>
 BinaryTree<K, E>::BinaryTree()
 {
 	root = nullptr;
 }
 
+#pragma region Add
 template <typename K, typename E>
 void BinaryTree<K, E>::add(K keySamp, E item)
 {
@@ -49,7 +53,10 @@ void BinaryTree<K, E>::add(K keySamp, E item)
 		root->add(keySamp, item);
 	}
 }
+#pragma endregion
 
+
+#pragma region Remove
 template <typename K, typename E>
 bool BinaryTree<K, E>::remove(K keyItem)
 {
@@ -123,9 +130,10 @@ bool BinaryTree<K, E>::remove(K keyItem)
     {
         smallestParent->setLeft(smallest->getRight());
     }
-    /*return true;*/
 }
+#pragma endregion
 
+#pragma region SearchNode
 template <typename K, typename E>
 int BinaryTree<K, E>::SearchNode(K keySamp)
 {
@@ -150,7 +158,9 @@ int BinaryTree<K, E>::SearchNode(K keySamp)
         return node->getItem();
     }
 }
+#pragma endregion
 
+#pragma region Scan Depth
 template <typename K, typename E>
 int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
 {
@@ -165,7 +175,9 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
     // Return the maximum depth of the subtrees, plus 1 for the root node
     return std::max(leftDepth, rightDepth) + 1;
 }
+#pragma endregion
 
+#pragma region Get SubTree
 //template <typename K, typename E>
 //int BinaryTree<K, E>::getSubtree(TNode<K, E>* root, int sampKey)
 //{
@@ -199,7 +211,9 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
 //        return nullptr;
 //    }
 //}
+#pragma endregion
 
+#pragma region Balance
 template <typename K, typename E>
 int BinaryTree<K, E>::height(TNode<K, E>* root)
 {
@@ -217,7 +231,12 @@ int BinaryTree<K, E>::isBalanced(TNode<K, E>* root)
 
     return (abs(lh - rh) <= 1 & isBalanced(root->getLeft()) & isBalanced(root->getRight()));
 }
- 
+#pragma endregion
+
+#pragma region Get Height
+
+#pragma region Get Max Tree Height
+
 template <typename K, typename E>
 int BinaryTree<K, E>::findMaxTreeHeight(TNode<K, E>* root)
 {
@@ -228,6 +247,11 @@ int BinaryTree<K, E>::findMaxTreeHeight(TNode<K, E>* root)
 
     return max(leftHeight, rightHeight) + 1;
 }
+
+#pragma endregion
+
+#pragma region Get Min Tree Height
+
 template <typename K, typename E>
 int BinaryTree<K, E>::findMinTreeHeight(TNode<K, E>* root)
 {
@@ -241,6 +265,12 @@ int BinaryTree<K, E>::findMinTreeHeight(TNode<K, E>* root)
     return min(leftHeight, rightHeight) + 1;
 }
 
+#pragma endregion
+
+#pragma endregion
+
+#pragma region Count
+
 template <typename K, typename E>
 int BinaryTree<K, E>::count()
 {
@@ -249,12 +279,20 @@ int BinaryTree<K, E>::count()
     return root->count();
 }
 
+#pragma endregion
+
+
+#pragma region Prints
+
+#pragma region Print in Order
+
 template<typename K, typename E>
 void BinaryTree<K, E>::printInOrder()
 {
     this->printInOrder(root);
     cout << endl;
 }
+
 template<typename K, typename E>
 void BinaryTree<K, E>::printInOrder(TNode<K, E>* node)
 {
@@ -267,12 +305,17 @@ void BinaryTree<K, E>::printInOrder(TNode<K, E>* node)
     }
 }
 
+#pragma endregion
+    
+#pragma region Print in Pre-Order
+
 template<typename K, typename E>
 void BinaryTree<K, E>::printPreOrder()
 {
     this->printPreOrder(root);
     cout << endl;
 }
+
 template<typename K, typename E>
 void BinaryTree<K, E>::printPreOrder(TNode<K, E>* node)
 {
@@ -284,6 +327,10 @@ void BinaryTree<K, E>::printPreOrder(TNode<K, E>* node)
         printPreOrder(node->getRight());
     }
 }
+
+#pragma endregion
+
+#pragma region Print in Post-Order
 
 template<typename K, typename E>
 void BinaryTree<K, E>::printPostOrder()
@@ -303,3 +350,7 @@ void BinaryTree<K, E>::printPostOrder(TNode<K, E>* node)
         cout << node->getItem() << " ";
     }
 }
+
+#pragma endregion
+
+#pragma endregion
