@@ -22,6 +22,7 @@ public:
     void printPostOrder();
     void printPostOrder(TNode<K, E>* node);
     int scanDepth(TNode<K, E>* root);
+    //int getSubtree(TNode<K, E>* root, int sampKey);
     int SearchNode(K keySamp);
     int findMaxTreeHeight(TNode<K, E>* root);
     int findMinTreeHeight(TNode<K, E>* root);
@@ -214,6 +215,40 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
     // Return the maximum depth of the subtrees, plus 1 for the root node
     return std::max(leftDepth, rightDepth) + 1;
 }
+
+//template <typename K, typename E>
+//int BinaryTree<K, E>::getSubtree(TNode<K, E>* root, int sampKey)
+//{
+//    // Check if the tree is empty
+//    if (root == nullptr)
+//    {
+//        return nullptr;
+//    }
+//
+//    // Check if the root node has the value we are looking for
+//    if (root->sampKey == sampKey)
+//    {
+//        return root;
+//    }
+//
+//    // Recursively search the left and right subtrees
+//    TNode<K, E>* leftSubtree = getSubtree(root->getLeft(), sampKey);
+//    TNode<K, E>* rightSubtree = getSubtree(root->getRight(), sampKey);
+//
+//    // Return the subtree that contains the value, or nullptr if it is not found
+//    if (leftSubtree != nullptr)
+//    {
+//        return leftSubtree;
+//    }
+//    else if (rightSubtree != nullptr)
+//    {
+//        return rightSubtree;
+//    }
+//    else
+//    {
+//        return nullptr;
+//    }
+//}
 
 //template <typename K, typename E>
 //int BinaryTree<K, E>::findBalance(TNode<K, E>* root)
