@@ -4,6 +4,7 @@
 #include "TNode.h"
 #include<iostream>
 #include <math.h>
+#include <algorithm>
 using namespace std;
 template <typename K, typename E>
 class BinaryTree
@@ -29,6 +30,8 @@ public:
     int findMinTreeHeight(TNode<K, E>* root);
     int height(TNode<K, E>* root);
     int isBalanced(TNode<K, E>* root);
+    //inline BinaryTree<K, E> subTree(TNode<K, E>* node);
+    TNode<K, E>* getSubtree(TNode<K, E>* root, K sampKey);
 #pragma endregion
 };
 
@@ -224,50 +227,50 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
 #pragma endregion
 
 #pragma region Get SubTree
-//template <typename K, typename E>
-//int BinaryTree<K, E>::getSubtree(TNode<K, E>* root, K sampKey)
-//{
-//    try
-//    {
-//        // Check if the tree is empty
-//        if (root == nullptr)
-//        {
-//            return nullptr;
-//        }
-//
-//        // Check if the root node has the value we are looking for
-//        if (root->sampKey == sampKey)
-//        {
-//            return root;
-//        }
-//
-//        // Recursively search the left and right subtrees
-//        TNode<K, E>* leftSubtree = getSubtree(root->getLeft(), sampKey);
-//        TNode<K, E>* rightSubtree = getSubtree(root->getRight(), sampKey);
-//
-//        // Return the subtree that contains the value, or nullptr if it is not found
-//        if (leftSubtree != nullptr)
-//        {
-//            return leftSubtree;
-//        }
-//        else if (rightSubtree != nullptr)
-//        {
-//            return rightSubtree;
-//        }
-//        else
-//        {
-//            return nullptr;
-//        }
-//    }
-//    catch (K sampKey)
-//    {
-//        throw runtime_error(sampKey + ": was not found!");
-//    }
-//    catch (...)
-//    {
-//        throw runtime_error("Something went wrong!");
-//    }
-//}
+template <typename K, typename E>
+TNode<K, E>* BinaryTree<K, E>::getSubtree(TNode<K, E>* root, K sampKey)
+{
+    try
+    {
+        // Check if the tree is empty
+        if (root == nullptr)
+        {
+            return nullptr;
+        }
+
+        // Check if the root node has the value we are looking for
+        if (root->getKey() == sampKey)
+        {
+            return root;
+        }
+
+        // Recursively search the left and right subtrees
+        TNode<K, E>* leftSubtree = getSubtree(root->getLeft(), sampKey);
+        TNode<K, E>* rightSubtree = getSubtree(root->getRight(), sampKey);
+
+        // Return the subtree that contains the value, or nullptr if it is not found
+        if (leftSubtree != nullptr)
+        {
+            return leftSubtree;
+        }
+        else if (rightSubtree != nullptr)
+        {
+            return rightSubtree;
+        }
+        else
+        {
+            return nullptr;
+        }
+    }
+    catch (K sampKey)
+    {
+        throw runtime_error(sampKey + ": was not found!");
+    }
+    catch (...)
+    {
+        throw runtime_error("Something went wrong!");
+    }
+}
 #pragma endregion
 
 #pragma region Balance

@@ -8,6 +8,7 @@
 #include <regex>
 #include <random>
 #include "BinaryTree.h"
+#include "TNode.h"
 using namespace std;
 
 
@@ -66,7 +67,6 @@ vector<vector<string>> readDelimitedRows(string fileName)
 	}
 	return allRows;
 }
-
 /// <summary>
 /// Splits a string using a user-defined delimiter (e.g. ",")
 /// </summary>
@@ -126,4 +126,27 @@ string to_string(char* a, int size)
 		s = s + a[i];
 	}
 	return s;
+}
+template <typename K, typename E>
+void printBT(const std::string& prefix, TNode<K, E>* node, bool isLeft)
+{
+	if (node != nullptr)
+	{
+		std::cout << prefix;
+
+		std::cout << (isLeft ? "<--" : ">--");
+
+		// print the value of the node
+		std::cout << node->getKey() << std::endl;
+
+		// enter the next tree level - left and right branch
+		printBT(prefix + (isLeft ? "|   " : "    "), node->getLeft(), true);
+		printBT(prefix + (isLeft ? "|   " : "    "), node->getRight(), false);
+	}
+}
+
+template <typename K, typename E>
+void printBT(TNode<K, E>* node)
+{
+	printBT("", node, true);
 }
