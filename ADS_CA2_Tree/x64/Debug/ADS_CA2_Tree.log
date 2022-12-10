@@ -1,13 +1,1 @@
-﻿  ADS_CA2_Tree.cpp
-C:\AWillToLive\ADS_CA2_Tree\Utilities.h(102,66): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-C:\AWillToLive\ADS_CA2_Tree\Benchmark.h(21,20): warning C4244: 'return': conversion from '__int64' to 'double', possible loss of data
-C:\AWillToLive\ADS_CA2_Tree\ADS_CA2_Tree.cpp(180): message : see reference to function template instantiation 'double measureTime<LinearStringSearchFunctor>(FuncType)' being compiled
-          with
-          [
-              FuncType=LinearStringSearchFunctor
-          ]
-  ADS_CA2_Tree.vcxproj -> C:\AWillToLive\x64\Debug\ADS_CA2_Tree.exe
+﻿  ADS_CA2_Tree.vcxproj -> C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\ADS_CA2_Tree.exe

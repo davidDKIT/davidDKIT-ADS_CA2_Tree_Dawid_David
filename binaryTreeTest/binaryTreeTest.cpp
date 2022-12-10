@@ -16,19 +16,27 @@ namespace binaryTreeTest
 		
 		//TEST_METHOD(TestAddToEmptyTree)
 		//{
-		//	TNode<sKey, Student> tree;
+		//	BinaryTree<sKey, Student> tree;
 		//	sKey keySamp1("WBC88XPE6LP", "Colby", "1-704-685-7028");
 
 		//	Student student1("WBC88XPE6LP", "Colby", "1-704-685-7028");
-		//	tree.add(key1, std1);
+		//	tree.add(keySamp1, student1);
 
 		//	Assert::IsNotNull(tree.root);
-		//	Student s = tree.root->getData();
+		//	Student s = tree.root->getItem();
 
 		//	string id = "WBC88XPE6LP";
-		//	//checking if the data from the first key is in the root
-		//	Assert::AreEqual(id, s.getuser_id());
+		//
+		//	Assert::AreEqual(id, s.getUserid());
 		//}
+		TEST_METHOD(TestAddToEmptyTree)
+		{
+			BinaryTree<int, int> tree;
+			tree.add(1, 2);
+			Assert::IsNotNull(tree.root);
+
+			Assert::AreEqual(2, tree.root->getItem());
+		}
 
 		TEST_METHOD(TestAddToRootLeft)
 		{
