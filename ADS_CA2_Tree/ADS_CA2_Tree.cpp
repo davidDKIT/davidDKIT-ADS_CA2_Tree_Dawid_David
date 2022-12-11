@@ -17,6 +17,8 @@ void demoDateHash();
 //void demoParseString();
 void demoCSVToObject();
 void demoBenchmarkVectorFindLast();
+void StudentDataPrint();
+void KeyPrint();
 
 int main()
 {
@@ -34,7 +36,13 @@ int main()
 
 	cout << endl << "demoBenchmarkVectorFindLast()..........." << endl;
 	demoBenchmarkVectorFindLast();
-	// subtree test
+
+	cout << endl << "Printing Student Data ........." << endl;
+	StudentDataPrint();
+
+	cout << endl << "Printing Key ........." << endl;
+	KeyPrint();
+
 	BinaryTree<int, int> tree;
 	TNode<int, int>* root = new TNode<int, int>(5, 5);
 	root->setLeft(new TNode<int, int>(4, 4));
@@ -50,21 +58,7 @@ int main()
 	cout << "after: " << endl;
 	printBT(new_root);
 
-
-	/*BinaryTree<int, int> tree;
-	root->setLeft(new TNode<int, int>(4, 4));
-	root->setRight(new TNode<int, int>(10, 10));
-	root->getLeft()->setLeft(new TNode<int, int>(3, 3));
-	root->getLeft()->setRight(new TNode<int, int>(7, 7));
-	root->getLeft()->getLeft()->setLeft(new TNode<int, int>(2, 2));
-	root->getLeft()->getRight()->setRight(new TNode<int, int>(15, 15));
-
-	cout << "before: " << endl;
-	printBT(root);
-	TNode<int, int>* new_root = tree.isBalanced(root, 7);
-	cout << "after: " << endl;
-	printBT(new_root);
-	return 0;*/
+	return 0;
 }
 
 void demoSimpleHash() {
@@ -217,6 +211,78 @@ void demoBenchmarkVectorFindLast() {
 
 	//see how long it takes to find the string
 	cout << "Vector - Average last element search time [Nr = " << N << ",Tests = " << numberOfTests << "]: " << averageSearchTimeInMS << "ms" << endl;
+}
+
+// Printing all the data from the csv
+void StudentDataPrint()
+{
+	string fileName = "data/data_1000.csv";
+
+	vector<vector<string>> allData = readDelimitedRows(fileName);
+
+	for (vector<string> row : allData)
+	{
+
+		string userid = row[0];
+		string ranking = row[1];
+		string fname = row[2];
+		string surname = row[3];
+		string gender = row[4];
+		string date_of_birth = row[5];
+		string email = row[6];
+		string phone = row[7];
+		string postcode = row[8];
+		string country = row[9];
+		string last_log_date = row[10];
+		string last_log_time = row[11];
+		string join_date = row[12];
+		string account_credit = row[13];
+		string address = row[14];
+
+		for (int i = 0; i <= 0; i++) {
+
+
+			cout << row[0] << ", " 
+				<< row[1] << ", " 
+				<< row[2] << ", " 
+				<< row[3] << ", " 
+				<< row[4] << ", " 
+				<< row[5] << ", " 
+				<< row[6] << ", " 
+				<< row[7] << ", " 
+				<< row[8] << ", " 
+				<< row[9] << ", " 
+				<< row[10] << ", " 
+				<< row[11] << ", " 
+				<< row[12] << ", " 
+				<< row[13] << ", " 
+				<< row[14] << ", " << endl;
+
+			cout << "|================================================|" << endl;
+		}
+	}
+}
+
+// Printing selected data
+void KeyPrint()
+{
+	string fileName = "data/data_1000.csv";
+
+	vector<vector<string>> allData = readDelimitedRows(fileName);
+
+	for (vector<string> row : allData)
+	{
+		string userid = row[0];
+		string fname = row[2];
+		string phone = row[7];
+
+		for (int i = 0; i <= 0; i++) {
+
+			cout << row[0] << ", " << row[2] << ", " << row[7] << endl;
+
+			cout << "|=================================================|" << endl;
+		}
+	}
 }
 
 //best - supports rows of data that contain commas and parenthesis - thanks for Derek!
