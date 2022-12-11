@@ -1,18 +1,18 @@
 ﻿  binaryTreeTest.cpp
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(303,1): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(295): message : while compiling class template member function 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)'
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(496,1): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(488): message : while compiling class template member function 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)'
           with
           [
               K=int,
               E=int
           ]
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\binaryTreeTest\binaryTreeTest.cpp(355): message : see reference to function template instantiation 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)' being compiled
+C:\AWillToLive\binaryTreeTest\binaryTreeTest.cpp(603): message : see reference to function template instantiation 'int BinaryTree<int,int>::isBalanced(TNode<K,E> *)' being compiled
           with
           [
               K=int,
               E=int
           ]
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\binaryTreeTest\binaryTreeTest.cpp(34): message : see reference to class template instantiation 'BinaryTree<int,int>' being compiled
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(201): warning C4715: 'BinaryTree<int,int>::SearchNode': not all control paths return a value
-C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\ADS_CA2_Tree\BinaryTree.h(163): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
-  binaryTreeTest.vcxproj -> C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\binaryTreeTest.dll
+C:\AWillToLive\binaryTreeTest\binaryTreeTest.cpp(39): message : see reference to class template instantiation 'BinaryTree<int,int>' being compiled
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(107): warning C4715: 'BinaryTree<int,int>::SearchNode': not all control paths return a value
+C:\AWillToLive\ADS_CA2_Tree\BinaryTree.h(200): warning C4715: 'BinaryTree<int,int>::remove': not all control paths return a value
+  binaryTreeTest.vcxproj -> C:\AWillToLive\x64\Debug\binaryTreeTest.dll

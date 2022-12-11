@@ -1,3 +1,3 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (studentTest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   nodeTest.cpp
-  studentTest.vcxproj -> C:\Users\david\Source\Repos\davidDKIT-ADS_CA2_Tree_Dawid_David\x64\Debug\nodeTest.dll
+  studentTest.vcxproj -> C:\AWillToLive\x64\Debug\nodeTest.dll

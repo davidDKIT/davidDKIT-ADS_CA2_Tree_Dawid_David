@@ -14,24 +14,23 @@ public:
 	TNode<K, E> *root;
     BinaryTree();
 	void add(K, E item);
+    int SearchNode(K keySamp);
     bool remove(K keyItem);
     int count();
 
     void printInOrder();
-    void printInOrder(TNode<K, E>* node);
+    void printInOrder(TNode<K, E>* root);
     void printPreOrder();
-    void printPreOrder(TNode<K, E>* node);
+    void printPreOrder(TNode<K, E>* root);
     void printPostOrder();
-    void printPostOrder(TNode<K, E>* node);
+    void printPostOrder(TNode<K, E>* root);
+
     int scanDepth(TNode<K, E>* root);
-    //int getSubtree(TNode<K, E>* root, int sampKey);
-    int SearchNode(K keySamp);
     int findMaxTreeHeight(TNode<K, E>* root);
     int findMinTreeHeight(TNode<K, E>* root);
     int height(TNode<K, E>* root);
+    TNode<K, E>* getSubtree(TNode<K, E>* root, K keySamp);
     int isBalanced(TNode<K, E>* root);
-    //inline BinaryTree<K, E> subTree(TNode<K, E>* node);
-    TNode<K, E>* getSubtree(TNode<K, E>* root, K sampKey);
 #pragma endregion
 };
 
@@ -70,9 +69,47 @@ void BinaryTree<K, E>::add(K keySamp, E item)
 }
 #pragma endregion
 
+#pragma region SearchNode
+template <typename K, typename E>
+int BinaryTree<K, E>::SearchNode(K keySamp)
+{
+    TNode<K, E>* node = root;
+    try
+    {
+        while (node != nullptr)
+        {
+            if (node->getKey() == keySamp)
+            {
+                break;
+            }
+            else if (keySamp < node->getKey())
+            {
+                node = node->getLeft();
+            }
+            else
+            {
+                node = node->getRight();
+            }
+        }
+        if (node != nullptr)
+        {
+            return node->getItem();
+        }
+    }
+    catch (K keySamp)
+    {
+        throw runtime_error(keySamp + ": key doesn't exist!");
+    }
+    catch (...)
+    {
+        throw runtime_error("Something went wrong!");
+    }
+}
+#pragma endregion
+
 #pragma region Remove
 template <typename K, typename E>
-bool BinaryTree<K, E>::remove(K keyItem)
+bool BinaryTree<K, E>::remove(K keySamp)
 {
     TNode<K, E>* toBeRemoved = root;
     TNode<K, E>* parent = nullptr;
@@ -83,7 +120,7 @@ bool BinaryTree<K, E>::remove(K keyItem)
         {
             try
             {
-                if (toBeRemoved->getKey() == keyItem)
+                if (toBeRemoved->getKey() == keySamp)
                 {
 
                     found = true;
@@ -91,7 +128,7 @@ bool BinaryTree<K, E>::remove(K keyItem)
                 else
                 {
                     parent = toBeRemoved;
-                    if (toBeRemoved->getKey() > keyItem)
+                    if (toBeRemoved->getKey() > keySamp)
                     {
                         toBeRemoved = toBeRemoved->getLeft();
                     }
@@ -101,9 +138,9 @@ bool BinaryTree<K, E>::remove(K keyItem)
                     }
                 }
             }
-            catch (K keyItem)
+            catch (K keySamp)
             {
-                throw runtime_error(keyItem + ": this key has been removed or doesn't exist!");
+                throw runtime_error(keySamp + ": this key has been removed or doesn't exist!");
             }
             catch (...)
             {
@@ -163,42 +200,146 @@ bool BinaryTree<K, E>::remove(K keyItem)
 }
 #pragma endregion
 
-#pragma region SearchNode
+#pragma region Count
+
 template <typename K, typename E>
-int BinaryTree<K, E>::SearchNode(K keySamp)
+int BinaryTree<K, E>::count()
 {
-    TNode<K, E>* node = root;
     try
     {
-        while (node != nullptr)
-        {
-            if (node->getKey() == keySamp)
-            {
-                break;
-            }
-            else if (keySamp < node->getKey())
-            {
-                node = node->getLeft();
-            }
-            else
-            {
-                node = node->getRight();
-            }
-        }
-        if (node != nullptr)
-        {
-            return node->getItem();
-        }
-    }
-    catch (K keySamp)
-    {
-        throw runtime_error(keySamp + ": key doesn't exist!");
+        if (root == nullptr)
+            return 0;
+        return root->count();
     }
     catch (...)
     {
-        throw runtime_error("Something went wrong!");
+        throw runtime_error("Something went wrong with count!");
     }
+
 }
+
+#pragma endregion
+
+#pragma region Prints
+
+#pragma region Print in Order
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printInOrder()
+{
+
+    try
+    {
+        this->printInOrder(root);
+        cout << endl;
+    }
+    catch (...)
+    {
+        throw runtime_error("Somthing went wrong!");
+    }
+
+}
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printInOrder(TNode<K, E>* root)
+{
+
+    try
+    {
+        if (root != nullptr)
+        {
+            printInOrder(root->getLeft());
+            cout << root->getItem() << " ";
+            printInOrder(root->getRight());
+        }
+    }
+    catch (...)
+    {
+        throw runtime_error("Somthing went wrong!");
+    }
+
+}
+
+#pragma endregion
+
+#pragma region Print in Pre-Order
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printPreOrder()
+{
+
+    try
+    {
+        this->printPreOrder(root);
+        cout << endl;
+    }
+    catch (...)
+    {
+        throw runtime_error("Somthing went wrong!");
+    }
+
+}
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printPreOrder(TNode<K, E>* root)
+{
+
+    try
+    {
+        if (root != nullptr)
+        {
+            cout << root->getItem() << " ";
+            printPreOrder(root->getLeft());
+            printPreOrder(root->getRight());
+        }
+    }
+    catch (...)
+    {
+        throw runtime_error("Somthing went wrong!");
+    }
+
+}
+
+#pragma endregion
+
+#pragma region Print in Post-Order
+
+template<typename K, typename E>
+void BinaryTree<K, E>::printPostOrder()
+{
+    try
+    {
+        this->printPostOrder(root);
+        cout << endl;
+    }
+    catch (...)
+    {
+        throw runtime_error("Somthing went wrong!");
+    }
+
+}
+template<typename K, typename E>
+void BinaryTree<K, E>::printPostOrder(TNode<K, E>* root)
+{
+    try
+    {
+        if (root != nullptr)
+        {
+
+            printPostOrder(root->getLeft());
+            printPostOrder(root->getRight());
+            cout << root->getItem() << " ";
+        }
+    }
+    catch (...)
+    {
+        throw runtime_error("Somthing went wrong!");
+    }
+
+}
+
+#pragma endregion
+
 #pragma endregion
 
 #pragma region Scan Depth
@@ -217,90 +358,6 @@ int BinaryTree<K, E>::scanDepth(TNode<K, E>* root)
         // Return the maximum depth of the subtrees, plus 1 for the root node
 
         return std::max(leftDepth, rightDepth) + 1;
-    }
-    catch (...)
-    {
-        throw runtime_error("Something went wrong!");
-    }
-}
-
-#pragma endregion
-
-#pragma region Get SubTree
-template <typename K, typename E>
-TNode<K, E>* BinaryTree<K, E>::getSubtree(TNode<K, E>* root, K sampKey)
-{
-    try
-    {
-        // Check if the tree is empty
-        if (root == nullptr)
-        {
-            return nullptr;
-        }
-
-        // Check if the root node has the value we are looking for
-        if (root->getKey() == sampKey)
-        {
-            return root;
-        }
-
-        // Recursively search the left and right subtrees
-        TNode<K, E>* leftSubtree = getSubtree(root->getLeft(), sampKey);
-        TNode<K, E>* rightSubtree = getSubtree(root->getRight(), sampKey);
-
-        // Return the subtree that contains the value, or nullptr if it is not found
-        if (leftSubtree != nullptr)
-        {
-            return leftSubtree;
-        }
-        else if (rightSubtree != nullptr)
-        {
-            return rightSubtree;
-        }
-        else
-        {
-            return nullptr;
-        }
-    }
-    catch (K sampKey)
-    {
-        throw runtime_error(sampKey + ": was not found!");
-    }
-    catch (...)
-    {
-        throw runtime_error("Something went wrong!");
-    }
-}
-#pragma endregion
-
-#pragma region Balance
-
-template <typename K, typename E>
-int BinaryTree<K, E>::height(TNode<K, E>* root)
-{
-    try
-    {
-        if (root == nullptr)
-            return 0;
-        return 1 + max(height(root->getLeft()), height(root->getRight()));
-    }
-    catch (...)
-    {
-        throw runtime_error("Something went wrong!");
-    }
-}
-
-template <typename K, typename E>
-int BinaryTree<K, E>::isBalanced(TNode<K, E>* root)
-{
-    try
-    {
-        if (root == nullptr)
-            return true;
-        int lh = height(root->getLeft());
-        int rh = height(root->getRight());
-
-        return (abs(lh - rh) <= 1 & isBalanced(root->getLeft()) & isBalanced(root->getRight()));
     }
     catch (...)
     {
@@ -362,144 +419,87 @@ int BinaryTree<K, E>::findMinTreeHeight(TNode<K, E>* root)
 
 #pragma endregion
 
-#pragma region Count
+#pragma region Get SubTree
 
 template <typename K, typename E>
-int BinaryTree<K, E>::count()
+TNode<K, E>* BinaryTree<K, E>::getSubtree(TNode<K, E>* root, K keySamp)
+{
+    try
+    {
+        // Check if the tree is empty
+        if (root == nullptr)
+        {
+            return nullptr;
+        }
+
+        // Check if the root node has the value we are looking for
+        if (root->getKey() == keySamp)
+        {
+            return root;
+        }
+
+        // Recursively search the left and right subtrees
+        TNode<K, E>* leftSubtree = getSubtree(root->getLeft(), keySamp);
+        TNode<K, E>* rightSubtree = getSubtree(root->getRight(), keySamp);
+
+        // Return the subtree that contains the value, or nullptr if it is not found
+        if (leftSubtree != nullptr)
+        {
+            return leftSubtree;
+        }
+        else if (rightSubtree != nullptr)
+        {
+            return rightSubtree;
+        }
+        else
+        {
+            return nullptr;
+        }
+    }
+    catch (K sampKey)
+    {
+        throw runtime_error(sampKey + ": was not found!");
+    }
+    catch (...)
+    {
+        throw runtime_error("Something went wrong!");
+    }
+}
+#pragma endregion
+
+#pragma region Balance
+
+template <typename K, typename E>
+int BinaryTree<K, E>::height(TNode<K, E>* root)
 {
     try
     {
         if (root == nullptr)
             return 0;
-        return root->count();
+        return 1 + max(height(root->getLeft()), height(root->getRight()));
     }
     catch (...)
     {
-        throw runtime_error("Something went wrong with count!");
+        throw runtime_error("Something went wrong!");
     }
-    
 }
 
-#pragma endregion
-
-#pragma region Prints
-
-#pragma region Print in Order
-
-template<typename K, typename E>
-void BinaryTree<K, E>::printInOrder()
-{
-
-    try
-    {
-        this->printInOrder(root);
-        cout << endl;
-    }
-    catch (...)
-    {
-        throw runtime_error("Somthing went wrong!");
-    }
-
-}
-
-template<typename K, typename E>
-void BinaryTree<K, E>::printInOrder(TNode<K, E>* node)
-{
-
-    try
-    {
-        if (node != nullptr)
-        {
-            printInOrder(node->getLeft());
-            cout << node->getItem() << " ";
-            printInOrder(node->getRight());
-        }
-    }
-    catch (...)
-    {
-        throw runtime_error("Somthing went wrong!");
-    }
-    
-}
-
-#pragma endregion
-    
-#pragma region Print in Pre-Order
-
-template<typename K, typename E>
-void BinaryTree<K, E>::printPreOrder()
-{
-
-    try
-    {
-        this->printPreOrder(root);
-        cout << endl;
-    }
-    catch (...)
-    {
-        throw runtime_error("Somthing went wrong!");
-    }
-    
-}
-
-template<typename K, typename E>
-void BinaryTree<K, E>::printPreOrder(TNode<K, E>* node)
-{
-
-    try
-    {
-        if (node != nullptr)
-        {
-            cout << node->getItem() << " ";
-            printPreOrder(node->getLeft());
-            printPreOrder(node->getRight());
-        }
-    }
-    catch (...)
-    {
-        throw runtime_error("Somthing went wrong!");
-    }
-    
-}
-
-#pragma endregion
-
-#pragma region Print in Post-Order
-
-template<typename K, typename E>
-void BinaryTree<K, E>::printPostOrder()
+template <typename K, typename E>
+int BinaryTree<K, E>::isBalanced(TNode<K, E>* root)
 {
     try
     {
-        this->printPostOrder(root);
-        cout << endl;
+        if (root == nullptr)
+            return true;
+        int lh = height(root->getLeft());
+        int rh = height(root->getRight());
+
+        return (abs(lh - rh) <= 1 & isBalanced(root->getLeft()) & isBalanced(root->getRight()));
     }
     catch (...)
     {
-        throw runtime_error("Somthing went wrong!");
+        throw runtime_error("Something went wrong!");
     }
-    
 }
-template<typename K, typename E>
-void BinaryTree<K, E>::printPostOrder(TNode<K, E>* node)
-{
-    try
-    {
-        if (node != nullptr)
-        {
-
-            printPostOrder(node->getLeft());
-            printPostOrder(node->getRight());
-            cout << node->getItem() << " ";
-        }
-    }
-    catch (...)
-    {
-        throw runtime_error("Somthing went wrong!");
-    }
-    
-}
-
-#pragma endregion
 
 #pragma endregion
