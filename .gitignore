@@ -1,5 +1,5 @@
 *.vs/*
-
+*.json
 # Prerequisites
 *.d
 
